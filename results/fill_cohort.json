@@ -1,0 +1,24 @@
+{
+  "n_cohort": 1853859,
+  "n_resolved": 1848344,
+  "tiers": {
+    "short": {
+      "cohort_n": 1183157,
+      "marketability_rate": 0.157,
+      "fill_marketable": 0.895,
+      "fill_pooled": 0.141
+    },
+    "mid": {
+      "cohort_n": 58011,
+      "marketability_rate": 0.717,
+      "fill_marketable": 0.954,
+      "fill_pooled": 0.684
+    },
+    "long": {
+      "cohort_n": 607176,
+      "marketability_rate": 0.553,
+      "fill_marketable": 0.938,
+      "fill_pooled": 0.519
+    }
+  }
+}

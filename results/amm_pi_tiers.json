@@ -1,0 +1,28 @@
+{
+  "n_sampled": 589987,
+  "n_routed": 509309,
+  "n_reliable": 464880,
+  "tiers": {
+    "short": {
+      "n": 167705,
+      "pi_gross_median": -0.71,
+      "pi_net_median": 0.55,
+      "pi_gross_vw": 34.83,
+      "positive_pct": 46.9
+    },
+    "mid": {
+      "n": 38973,
+      "pi_gross_median": 24.46,
+      "pi_net_median": 27.52,
+      "pi_gross_vw": 114.41,
+      "positive_pct": 81.9
+    },
+    "long": {
+      "n": 258202,
+      "pi_gross_median": 16.69,
+      "pi_net_median": 20.4,
+      "pi_gross_vw": 3.36,
+      "positive_pct": 74.9
+    }
+  }
+}

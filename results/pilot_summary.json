@@ -1,0 +1,95 @@
+{
+  "provenance": {
+    "source": "https://api.cow.fi/mainnet",
+    "chain": "ethereum-mainnet",
+    "kind": "pilot",
+    "n_auctions": 197,
+    "auction_id_min": 13576605,
+    "auction_id_max": 13577598,
+    "window_first_id": 13576605,
+    "n_book_orders": 9868,
+    "n_arrivals": 2099,
+    "n_arrival_meta": 2099,
+    "buffer_auctions": 250
+  },
+  "cohort": {
+    "n_arrival_meta": 2099,
+    "n_resolved": 2077,
+    "n_open_censored": 22,
+    "class_counts": {
+      "limit": 2099
+    }
+  },
+  "fill_probability": {
+    "note": "Submission-conditioned in-window arrivals reaching a terminal state (Sec. 3.3 cohort); removes the book-snapshot survivorship bias of the main sample. Report the marketability decomposition: the pooled rate is dominated by unmarketable resting limit orders; the best-execution-relevant quantity is the fill rate CONDITIONAL on marketability.",
+    "marketability_rate": 0.1098,
+    "fill_marketable": {
+      "n_fulfilled": 209,
+      "n_expired": 14,
+      "n_cancelled": 5,
+      "n_open_censored": 0,
+      "n_resolved": 228,
+      "fill_rate": 0.9167,
+      "fill_ci95": [
+        0.8735,
+        0.946
+      ],
+      "fill_rate_ex_cancel": 0.9372,
+      "fill_ci95_ex_cancel": [
+        0.8974,
+        0.9622
+      ],
+      "nonfill_rate": 0.0833
+    },
+    "fill_unmarketable": {
+      "n_fulfilled": 0,
+      "n_expired": 1468,
+      "n_cancelled": 381,
+      "n_open_censored": 0,
+      "n_resolved": 1849,
+      "fill_rate": 0.0,
+      "fill_ci95": [
+        0.0,
+        0.0021
+      ],
+      "fill_rate_ex_cancel": 0.0,
+      "fill_ci95_ex_cancel": [
+        0.0,
+        0.0026
+      ],
+      "nonfill_rate": 1.0
+    },
+    "fill_pooled": {
+      "n_fulfilled": 209,
+      "n_expired": 1482,
+      "n_cancelled": 386,
+      "n_open_censored": 0,
+      "n_resolved": 2077,
+      "fill_rate": 0.1006,
+      "fill_ci95": [
+        0.0884,
+        0.1143
+      ],
+      "fill_rate_ex_cancel": 0.1236,
+      "fill_ci95_ex_cancel": [
+        0.1088,
+        0.1401
+      ],
+      "nonfill_rate": 0.8994
+    }
+  },
+  "figure_orders": [
+    {
+      "label": "Small order",
+      "auctionId": 13576653,
+      "uid": "0xea7206771db9f87aaf9e0f9361a6ec733e2c0592b3301569a4b994ecaee9647523711e567681fd4b4da662e67a6001da930116986a7d7a08",
+      "notional_eth": 0.0026
+    },
+    {
+      "label": "Large order",
+      "auctionId": 13577036,
+      "uid": "0x4d1f2847707d76697bca2c052f9283dec33ebebdd7aa9750b958a8515002d846f0b71c85ebcd5adff665d57e681d4b215cc2e24d6a7d8c16",
+      "notional_eth": 1412.3061
+    }
+  ]
+}

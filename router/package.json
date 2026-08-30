@@ -1,0 +1,17 @@
+{
+  "name": "amm-counterfactual-router",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bachu et al. counterfactual: Uniswap smart-order-router pinned to the settlement block.",
+  "dependencies": {
+    "@uniswap/smart-order-router": "3.17.3",
+    "@uniswap/sdk-core": "4.2.0",
+    "ethers": "5.7.2"
+  },
+  "overrides": {
+    "@uniswap/sdk-core": "4.2.0",
+    "@uniswap/router-sdk": "1.9.0",
+    "@uniswap/v3-sdk": "3.11.0",
+    "@uniswap/v2-sdk": "3.3.0"
+  }
+}

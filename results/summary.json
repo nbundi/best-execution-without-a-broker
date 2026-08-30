@@ -1,0 +1,154 @@
+{
+  "provenance": {
+    "source": "CoW Protocol orderbook API, api.cow.fi/mainnet, /api/v2/solver_competition and /api/v1/orders",
+    "chain": "ethereum-mainnet",
+    "collected_utc": "2026-08-10",
+    "n_auctions": 1096,
+    "auction_id_min": 13552182,
+    "auction_id_max": 13556179,
+    "orders_meta": 1336,
+    "status_sample": 2000,
+    "status_snapshot_auction": 13526215,
+    "note": "Settlement-side sample. Submitted-order fill cohort is NOT unbiasedly identifiable from this API (book snapshots over-sample long-dated unfilled limit orders); see paper Sec. 3.3/5.3."
+  },
+  "sample": {
+    "auctions": 1096,
+    "order_observations": 1454,
+    "distinct_orders": 1177,
+    "solutions_per_auction_mean": 9.77,
+    "solutions_per_auction_median": 9,
+    "contestable_pct": 69.9
+  },
+  "competition": {
+    "market_hhi": 0.195,
+    "numbers_equivalent": 5.1,
+    "settling_solvers": 21,
+    "order_effective_bidders_mean": 6.48,
+    "order_effective_bidders_median": 5
+  },
+  "margin": {
+    "n": 1018,
+    "median_bps": 1.0,
+    "mean_bps": 11.25,
+    "negative_share_pct": 8.1,
+    "d1_median_bps": 12.66,
+    "d10_median_bps": 0.13
+  },
+  "latency": {
+    "auction_window_blocks_median": 3,
+    "auction_window_seconds_median": 36
+  },
+  "strata": {
+    "short": {
+      "orders": 453,
+      "contest_pct": 57.6,
+      "mean_bidders": 5.48,
+      "median_notional_eth": 1.559
+    },
+    "mid": {
+      "orders": 804,
+      "contest_pct": 71.1,
+      "mean_bidders": 6.82,
+      "median_notional_eth": 0.363
+    },
+    "long": {
+      "orders": 197,
+      "contest_pct": 92.9,
+      "mean_bidders": 7.36,
+      "median_notional_eth": 0.813
+    }
+  },
+  "size_decile_table": [
+    {
+      "dec": 0,
+      "n": 102,
+      "median_notional_eth": 0.01006,
+      "median_margin_bps": 12.65625,
+      "mean_bidders": 7.28431,
+      "median_cv": 0.00319
+    },
+    {
+      "dec": 1,
+      "n": 102,
+      "median_notional_eth": 0.09184,
+      "median_margin_bps": 2.45471,
+      "mean_bidders": 9.30392,
+      "median_cv": 0.00182
+    },
+    {
+      "dec": 2,
+      "n": 108,
+      "median_notional_eth": 0.19665,
+      "median_margin_bps": 1.73557,
+      "mean_bidders": 8.75926,
+      "median_cv": 0.00141
+    },
+    {
+      "dec": 3,
+      "n": 95,
+      "median_notional_eth": 0.30989,
+      "median_margin_bps": 1.17384,
+      "mean_bidders": 9.46316,
+      "median_cv": 0.00145
+    },
+    {
+      "dec": 4,
+      "n": 102,
+      "median_notional_eth": 0.57433,
+      "median_margin_bps": 0.43029,
+      "mean_bidders": 8.37255,
+      "median_cv": 0.00086
+    },
+    {
+      "dec": 5,
+      "n": 102,
+      "median_notional_eth": 0.92077,
+      "median_margin_bps": 0.85314,
+      "mean_bidders": 8.42157,
+      "median_cv": 0.00128
+    },
+    {
+      "dec": 6,
+      "n": 101,
+      "median_notional_eth": 1.21318,
+      "median_margin_bps": 0.76428,
+      "mean_bidders": 7.24752,
+      "median_cv": 0.00065
+    },
+    {
+      "dec": 7,
+      "n": 102,
+      "median_notional_eth": 2.60074,
+      "median_margin_bps": 0.37209,
+      "mean_bidders": 7.51961,
+      "median_cv": 0.00018
+    },
+    {
+      "dec": 8,
+      "n": 102,
+      "median_notional_eth": 6.32073,
+      "median_margin_bps": 0.26375,
+      "mean_bidders": 10.78431,
+      "median_cv": 0.00024
+    },
+    {
+      "dec": 9,
+      "n": 102,
+      "median_notional_eth": 48.09131,
+      "median_margin_bps": 0.13028,
+      "mean_bidders": 11.07843,
+      "median_cv": 0.00018
+    }
+  ],
+  "fill_cohort_caveat": {
+    "status_sample": 2000,
+    "resolved": 159,
+    "status_counts": {
+      "open": 1841,
+      "expired": 111,
+      "cancelled": 39,
+      "fulfilled": 9
+    },
+    "note": "Book-snapshot statuses are survivorship-biased toward unfilled long-dated limit orders; NOT a fill-rate estimate."
+  }
+}

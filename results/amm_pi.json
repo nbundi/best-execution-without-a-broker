@@ -1,0 +1,114 @@
+{
+  "n_jobs": 120,
+  "n_routed": 100,
+  "n_error": 20,
+  "coverage_pct": 83.3,
+  "n_reliable": 86,
+  "artifact_share_pct": 14.0,
+  "pi_gross_median": 10.84,
+  "pi_net_median": 11.38,
+  "pi_gross_vw_mean": 19.08,
+  "pi_net_vw_mean": 19.16,
+  "positive_share_gross_pct": 74.4,
+  "route_counts": {
+    "V3": 53,
+    "V3+V3+V3": 21,
+    "V2": 9,
+    "V3+V3": 8,
+    "V3+V2": 5,
+    "MIXED": 3,
+    "V3+V3+V3+V2": 1
+  },
+  "decile_table": [
+    {
+      "dec": 0,
+      "n": 9.0,
+      "median_notional_eth": 0.01,
+      "pi_gross_median": -43.09,
+      "pi_net_median": -17.14,
+      "pi_gross_vw": -12.3,
+      "pi_net_vw": -1.95
+    },
+    {
+      "dec": 1,
+      "n": 9.0,
+      "median_notional_eth": 0.03,
+      "pi_gross_median": 27.34,
+      "pi_net_median": 30.01,
+      "pi_gross_vw": 67.68,
+      "pi_net_vw": 70.5
+    },
+    {
+      "dec": 2,
+      "n": 8.0,
+      "median_notional_eth": 0.26,
+      "pi_gross_median": 5.75,
+      "pi_net_median": 6.61,
+      "pi_gross_vw": 6.41,
+      "pi_net_vw": 7.11
+    },
+    {
+      "dec": 3,
+      "n": 9.0,
+      "median_notional_eth": 0.6,
+      "pi_gross_median": -0.38,
+      "pi_net_median": 0.2,
+      "pi_gross_vw": 56.72,
+      "pi_net_vw": 57.21
+    },
+    {
+      "dec": 4,
+      "n": 12.0,
+      "median_notional_eth": 1.04,
+      "pi_gross_median": 86.37,
+      "pi_net_median": 87.14,
+      "pi_gross_vw": 78.24,
+      "pi_net_vw": 78.93
+    },
+    {
+      "dec": 5,
+      "n": 5.0,
+      "median_notional_eth": 1.16,
+      "pi_gross_median": 65.28,
+      "pi_net_median": 65.66,
+      "pi_gross_vw": 238.29,
+      "pi_net_vw": 238.54
+    },
+    {
+      "dec": 6,
+      "n": 8.0,
+      "median_notional_eth": 1.78,
+      "pi_gross_median": 76.28,
+      "pi_net_median": 76.71,
+      "pi_gross_vw": 73.36,
+      "pi_net_vw": 73.64
+    },
+    {
+      "dec": 7,
+      "n": 10.0,
+      "median_notional_eth": 4.18,
+      "pi_gross_median": 3.52,
+      "pi_net_median": 3.57,
+      "pi_gross_vw": 30.57,
+      "pi_net_vw": 30.65
+    },
+    {
+      "dec": 8,
+      "n": 7.0,
+      "median_notional_eth": 6.32,
+      "pi_gross_median": 1.81,
+      "pi_net_median": 1.83,
+      "pi_gross_vw": 5.8,
+      "pi_net_vw": 5.83
+    },
+    {
+      "dec": 9,
+      "n": 9.0,
+      "median_notional_eth": 28.8,
+      "pi_gross_median": 3.0,
+      "pi_net_median": 3.03,
+      "pi_gross_vw": 7.33,
+      "pi_net_vw": 7.35
+    }
+  ]
+}

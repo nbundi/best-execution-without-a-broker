@@ -1,0 +1,487 @@
+\documentclass[11pt]{article}
+
+% ---------------------------------------------------------------------------
+% Best Execution Without a Broker
+% Reflowed to the CVA CFP 2026 / Ledger journal house style (see README.md):
+% Times New Roman 11.5/13.5, 3.1 cm side margins, 13 pt bold numbered section
+% headings, inline italic em-dash subheadings, numbered superscript endnote
+% citations in a "Notes and References" section.
+% Single-author paper; first-person singular voice (academic-writing-style.md).
+% ---------------------------------------------------------------------------
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,left=3.1cm,right=3.1cm,top=2.4cm,bottom=1.0cm,
+            headheight=14pt,headsep=0.7cm,footskip=0.6cm]{geometry}
+\usepackage{amsmath,amsthm}
+\usepackage{newtxtext,newtxmath}   % Times New Roman-like text and math
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage[super,numbers,sort&compress]{natbib}
+\usepackage[explicit]{titlesec}
+\usepackage{fancyhdr}
+\usepackage[hidelinks]{hyperref}
+
+% --- Ledger body font size: 11.5 pt on 13.5 pt leading --------------------
+\makeatletter
+\renewcommand\normalsize{%
+  \@setfontsize\normalsize{11.5pt}{13.5pt}%
+  \abovedisplayskip 10\p@ \@plus3\p@ \@minus6\p@
+  \belowdisplayskip \abovedisplayskip
+  \abovedisplayshortskip \z@ \@plus3\p@
+  \belowdisplayshortskip 6.5\p@ \@plus3.5\p@ \@minus3\p@}
+\makeatother
+\normalsize
+
+% --- Section headings: 13 pt Times bold, numbered with a period -----------
+\titleformat{\section}
+  {\normalfont\bfseries\fontsize{13}{15}\selectfont}{\thesection.}{0.6em}{#1}
+\titlespacing*{\section}{0pt}{2.2ex plus 1ex minus .2ex}{1.0ex}
+
+% --- Numbered subheadings: inline, italic, followed by an em dash ----------
+\titleformat{\subsection}[runin]
+  {\normalfont\itshape}{\upshape\thesubsection}{0.5em}{#1}[\textup{---}]
+\titlespacing*{\subsection}{0pt}{1.3ex plus .3ex}{0.15em}
+
+% --- Run-in topic heads: inline, italic, followed by an em dash ------------
+\titleformat{\paragraph}[runin]
+  {\normalfont\itshape}{}{0pt}{#1}[\textup{---}]
+\titlespacing*{\paragraph}{0pt}{1.1ex plus .2ex}{0.15em}
+
+% --- Running head and page number (Ledger) --------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\fontsize{10}{12}\selectfont CVA Academic Research Journal 2026}
+\fancyfoot[L]{\fontsize{10}{12}\selectfont\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{\fancyhf{}%
+  \fancyhead[C]{\fontsize{10}{12}\selectfont CVA Academic Research Journal 2026}%
+  \fancyfoot[L]{\fontsize{10}{12}\selectfont\thepage}%
+  \renewcommand{\headrulewidth}{0pt}}
+
+% References appear as a numbered "Notes and References" section (Ledger).
+\renewcommand{\refname}{Notes and References}
+
+\theoremstyle{plain}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prb}{\mathbb{P}}
+\newcommand\blfootnote[1]{\begingroup\renewcommand\thefootnote{}%
+  \footnotetext{#1}\addtocounter{footnote}{-1}\endgroup}
+
+\begin{document}
+
+% --- Title block (Ledger: 24 pt centred title, 13 pt author) --------------
+\thispagestyle{plain}
+\begin{center}
+{\fontsize{24}{28}\selectfont Best Execution Without a Broker:\\[2pt]
+Evaluating Intent-Based Settlement\\ Against the Multi-Factor\\ Best-Execution Standard\par}
+\vspace{1.4em}
+{\fontsize{13}{16}\selectfont Nils Bundi\textsuperscript{*,\,1}\par}
+\end{center}
+\blfootnote{\fontsize{8}{9}\selectfont\textsuperscript{1}N.\ Bundi (\texttt{bund@zhaw.ch}) is a researcher at the Zurich University of Applied Sciences (ZHAW), Switzerland. \textsuperscript{*}Corresponding author.}
+\vspace{0.4em}
+
+% --- Abstract (Ledger: 10 pt, 1.2 cm side indents, bold run-in "Abstract.")
+{\fontsize{10}{13}\selectfont
+\setlength{\leftskip}{1.2cm}\setlength{\rightskip}{1.2cm}
+\noindent\textbf{Abstract.}\quad Intent-based settlement has emerged as a leading model for on-chain trade execution and a reinvention of the market infrastructure beneath it: a user signs a declarative order and a competitive network of solvers bids to settle it on-chain. This paper asks what that reinvention means for best execution, the multi-factor duty that in traditional markets a broker owes and must evidence. Intent settlement removes the broker. Measuring a full twelve-month census of CoW Protocol auctions across three liquidity tiers and 690,000 orders, benchmarked against retail broker execution, I find the broker-free architecture comparable on price, comparable on the likelihood of execution, and dominant on settlement: intent orders settle in about fifty seconds with almost no failures, against a broker's T+1 settlement and roughly two percent fail rate. Because CoW publishes the competing bids, the counterfactual is observed rather than inferred: the winner beats the best losing bid by a realised competitive margin falling from about 13 basis points on the smallest orders to about 1 on the largest, and beats a direct on-chain route by up to 28 basis points in less liquid pairs. Execution without a broker is comparable on quality, superior on settlement, and uniquely superior on evidence.
+\par}
+
+\vspace{0.7em}
+{\fontsize{10}{13}\selectfont
+\begin{center}KEY WORDS\end{center}
+\vspace{-0.4em}
+\begin{center}
+1.~Intents.\quad 2.~Best execution.\quad 3.~Order flow auctions.\quad 4.~Solver competition.\quad 5.~On-chain settlement.
+\end{center}
+}
+\vspace{0.5em}
+
+% ===========================================================================
+\section{Introduction}
+% ===========================================================================
+
+On-chain finance is reinventing the infrastructure of trading and settlement, and intent-based execution has emerged as the model at its centre. Rather than constructing and broadcasting a transaction, a user signs a declarative \emph{intent} that fixes a desired outcome, and a competitive network of solvers bids to settle it on-chain. Adoption has been rapid: Uniswap alone has crossed three trillion dollars in cumulative volume~\citep{uniswap3t}, and intent venues are its fastest-growing segment, with CoW Protocol settling about \$87~billion in 2025, roughly double its 2024 figure~\citep{cowdao_review2025}, while industry research projects on-chain spot volume rising toward a fifth of centralised-exchange volume~\citep{delphi2025defi}. Intent settlement grew for a reason: by moving execution off the public mempool and into a competitive auction among professional solvers, it addresses the maximal-extractable-value problem that arbitrage bots impose on transparent on-chain execution~\citep{daian2020flashboys}. Some designs, CoW Protocol among them, implement this as a frequent batch auction, a market-design idea with a long pedigree~\citep{budish2015hft}.
+
+The reinvention is not only of the venue but of the intermediary, and that is where it meets regulation. In the traditional model a broker receives a client order, decides where and how to execute it, and answers for the result under a best-execution duty. Intent settlement removes the broker: the client states a desired outcome and competing solvers deliver it. But the regulated function the broker performed, arranging and evidencing client execution, does not disappear. Under Article~27 of MiFID~II a firm executing client orders must take all sufficient steps to obtain the best possible result, taking into account price, costs, speed, likelihood of execution and settlement, size, and the nature of the order~\citep{mifid2}; Article~18 of the Swiss Financial Services Act imposes a functionally comparable duty~\citep{finsa}, and FINRA Rule~5310 an analogous one in the United States~\citep{finra5310}. Two features matter throughout: the duty is \emph{multi-factor}, so for large or illiquid orders the likelihood of execution can dominate price; and it attaches to the \emph{broker} that routes the order, not the venue that fills it. A venue can supply evidence but cannot owe the duty. That is why the broker, not the venue, is the right comparison for a model that dispenses with one, and the question this paper asks is whether that function can be performed at least as well, and evidenced better, without a broker.
+
+The evidentiary side has always been the hard part. A firm observes the price at which a client order filled, but not what the order would have obtained elsewhere at the same instant; transaction cost analysis reconstructs that counterfactual from public market data, yet the unexecuted alternative stays a model, not a datum. Intent-based settlement changes this. In a batch-auction implementation such as CoW Protocol, the protocol collects signed intents, distributes them to a solver network, receives competing settlement proposals, and selects a winner, and the losing proposals are retained and published~\citep{cow_api}. For any executed order I observe not only the price obtained but the full set of prices competing professional counterparties offered at that moment: the counterfactual is directly observed. Best execution is an evidentiary problem before it is a substantive one, and a venue that publishes its own counterfactuals, as CoW does, dissolves it.
+
+Intent settlement is not a single design, and the choice of venue is methodological. UniswapX~\citep{adams2023uniswapx} and 1inch Fusion clear orders one at a time, running a per-order Dutch auction in which fillers compete against a price that decays until one accepts. CoW Protocol clears in the opposite way, batching orders and running a combinatorial auction in which bonded solvers submit competing solutions for the whole batch, so that offsetting orders can be matched directly against one another, a coincidence of wants, without consuming on-chain liquidity~\citep{canidio2024fair}. All of these systems are more transparent than traditional execution, because settlement happens on-chain and is publicly verifiable. CoW goes further and publishes its entire solver competition record, losing bids included, through a public API~\citep{cow_api}, a disclosure no mechanism requires and one the Dutch auctions of UniswapX and 1inch Fusion do not make, and that published counterfactual is what this paper depends on and why I study CoW, a scope I return to in Section~\ref{sec:limits}.
+
+This paper makes three contributions. First, it benchmarks execution without a broker against a broker on the full multi-factor standard rather than on price alone, where existing work measures only price improvement over automated-market-maker (AMM) baselines~\citep{bachu2024quantifying,yuminaga2025welfare}. Second, it turns the observable counterfactual into both a measurement instrument and the evidentiary advantage the broker lacks: the published losing bids yield, for each order, the \emph{realised competitive margin}, the surplus the winner retained over the next-best counterparty, measured directly where a broker can only infer its benchmark from a consolidated tape. Third, it identifies and bounds the censoring that conditioning on filled orders induces, showing the bias is real but limited because most unfilled orders are unmarketable resting orders, not execution failures.
+
+The design gives four answers. On \emph{price}, execution without a broker is comparable to a broker for liquid pairs and better for illiquid ones: the realised competitive margin falls by an order of magnitude as order size rises and widens as pair liquidity falls, and price improvement over a routed direct-AMM counterfactual is near zero for blue-chip pairs but double-digit for illiquid ones. On the \emph{likelihood of execution} it is comparable, the lower headline fill rate for the most liquid tier being a composition effect rather than a deficit. On \emph{settlement} it dominates, clearing in about fifty seconds with almost no failures against a broker's T+1 settlement and roughly two percent fail rate. No arrangement is best on every factor, but the fourth answer is decisive and separate: the counterfactual is \emph{observed} rather than inferred, so a supervisor can measure the value competition delivered rather than model it. That value is largest where solvers most disagree about the price, in small orders and illiquid pairs, and near zero for large orders in liquid pairs.
+
+% ===========================================================================
+\section{Related Literature and Contribution}
+\label{sec:lit}
+% ===========================================================================
+
+Four strands bear on the argument. The peer-reviewed core of the first three sits in traditional market microstructure and market design. The fourth, which measures intent venues directly, is recent and largely pre-refereed. Locating the paper across all four is the point, because the on-chain measurement question is an old microstructure question in new institutional dress.
+
+\paragraph{Market design and the batch auction} The mechanism a batch-clearing intent venue implements is not new to crypto. \citet{budish2015hft} argue that the continuous limit order book invites a socially wasteful speed race, and propose the \emph{frequent batch auction}, a uniform-price auction run at short discrete intervals, as the market-design remedy. A batch-auction intent venue is a frequent batch auction on a blockchain. The speed race it displaces has an on-chain form. \citet{daian2020flashboys} document and quantify the frontrunning and priority-gas auctions that arbitrage bots run against decentralised-exchange users, the maximal-extractable-value problem that intent settlement is meant to internalise. This strand frames the object I study as a known market-design response to a known pathology rather than a crypto-native novelty.
+
+\paragraph{Execution quality on automated market makers} The baseline an intent venue competes against is the AMM, and a mature peer-reviewed literature characterises it. \citet{lehar2025dex} compare the Uniswap AMM to a centralised limit order book over the full transaction history, document the absence of long-lived arbitrage, and give conditions under which the AMM dominates. \citet{park2023flaws} identifies a structural cost of transparent AMM pricing, namely that any liquidity-invariance rule admits sandwich attacks that raise trading costs, which is one motivation for moving execution into a protected auction. \citet{barbon2026quality} compare centralised and decentralised venues and find that fixed gas costs burden small trades while decentralised venues become cost-competitive above roughly \$10{,}000, undercutting every centralised venue for the largest trades. \citet{hasbrouck2026fees} model how DEX fees and the inventory they attract shape price impact, and \citet{alexander2025price} document that Uniswap~v3 sharply improved price discovery over v2. Two facts from this strand recur below. The AMM is a serious execution venue whose cost advantage grows with trade size, and its transparency creates the very frontrunning that intents mitigate.
+
+\paragraph{Best execution and the broker} The standard I apply is a broker's duty, and the broker's execution quality is the benchmark I measure against. \citet{schwarz2025actual} route identical retail orders simultaneously through several brokers and find realised round-trip execution costs that vary widely and systematically across them, from about $0.07$ to $0.46$ percent, so realised quality turns on where the broker routes, the very choice best execution governs. That routing incentive can diverge from the client's. \citet{battalio2016brokers} show that brokers routing to maximise liquidity rebates deliver measurably worse limit-order execution, and \citet{ernst2026pfof} show that payment for order flow and internalisation give retail \emph{option} traders worse prices, a routing conflict sharper in options than in equities. An intent auction is order-flow intermediation of a different kind, one in which the competing counterparties and their bids are public. It faces the same best-execution question these papers ask of the broker, and the observable counterfactual is what lets me answer it by measurement rather than by inference.
+
+\paragraph{Order flow auctions, solvers, and intents} The literature that measures intent venues directly is the closest, and it is largely pre-refereed. \citet{bachu2024quantifying} develop the routed-counterfactual method I adopt and report price improvement of a few basis points. \citet{yuminaga2025welfare} extend the comparison across venues on a short-tail and a long-tail pair, the liquidity-tier design I follow. \citet{chitra2024intent} model how solver entry costs endogenously produce oligopolistic concentration among the permissioned fillers. \citet{canidio2024fair} construct a combinatorial trade-intent auction whose fairness benchmark is endogenous to the bids, the concept behind the competitive margin I measure. \citet{augusto2026liquidity}, studying intent-based cross-chain bridges, find solver liquidity constraints and settlement delay binding in practice. Closest to my identification, \citet{zhang2026incentives} studies a CoW reward reform and finds rising concentration with no detectable change in execution quality. These papers measure price, on filled orders, and read the auction on its own terms rather than against a regulatory standard.
+
+\paragraph{The gap} Two gaps remain. First, no work tests intent execution against the multi-factor best-execution duty a European or Swiss institution must satisfy, even though the traditional-finance literature on payment for order flow shows why the multi-factor, routing-conflict framing is the right one. Second, no work corrects for the censoring that conditioning on fills induces, or uses the published losing bids as a direct counterfactual rather than a simulated one. The present paper closes both, and connects the measurement to the specific duty.
+
+% ===========================================================================
+\section{Data}
+\label{sec:data}
+% ===========================================================================
+
+The primary source is the CoW Protocol orderbook API, which exposes the solver competition record for each settlement auction~\citep{cow_api}. Each record contains every submitted solution, winning and losing, the solver identity behind each, the proposed execution for each order, and a native-price vector valuing every token in ETH. This is the observable-counterfactual property. For a given executed order I recover the distribution of competing offers, not merely the winner. Auction and settlement semantics, including the fairness reference used to filter solutions, follow the protocol's published rules and open-source services~\citep{cowdao_rules,cowdao_fairauction}.
+
+\paragraph{Three-tier design.} A single token pair cannot separate the effect of order size from the effect of pair liquidity, and single small-cap tokens have bursty, intermittent flow on CoW. I therefore follow the short-tail and long-tail logic of \citet{yuminaga2025welfare} and stratify all orders quoted against USDC into three liquidity tiers by the market-cap class of the other token. The \emph{short} tier is blue-chip crypto (WETH, WBTC and their liquid staked and wrapped variants). The \emph{mid} tier is a basket of mid-cap decentralised-finance tokens (UNI, LINK, AAVE, CRV, MKR and similar). The \emph{long} tier is the basket of all remaining non-stablecoin tokens, that is small caps. Baskets, rather than single tokens, give the mid and long tiers statistical power and measure the liquidity class rather than one token's idiosyncrasy. Native-ETH orders are mapped to WETH, and stablecoin-versus-stablecoin pairs are excluded because they are not a liquidity tier.
+
+\paragraph{Sample.} I collect a full census of every settlement auction over the twelve months to August~2026, retaining the orders in the three tiers. The census holds $565{,}259$ auctions and about $693{,}000$ settled-order observations quoted against USDC. Table~\ref{tab:sample} reports the composition. The short tier contains only five tokens but, after the long basket, the second-largest number of orders; the long tier aggregates $3{,}045$ distinct small-cap tokens. Orders are \emph{contestable}, meaning at least two distinct solvers offered an executable fill, for $73$ to $88$ percent of the census, and contestability is higher in the less liquid tiers. Every number in Section~\ref{sec:results} is computed from these cached records and is reproducible from them.
+
+\begin{table}[t]
+\centering
+\caption{Sample composition by liquidity tier (CoW mainnet, full twelve-month census, Aug.~2025--Aug.~2026). Contestable orders are those for which at least two distinct solvers offered an executable fill. Fill probability is reported separately on the submission cohort in Table~\ref{tab:fill}.}
+\label{tab:sample}
+\small
+\begin{tabular}{lrrr}
+\toprule
+Tier & Settled orders & Distinct tokens & Contestable (\%) \\
+\midrule
+Short (blue-chip)  & 238{,}073 & 5       & 72.6 \\
+Mid (mid-cap)      & 45{,}357  & 14      & 88.1 \\
+Long (small-cap)   & 409{,}534 & 3{,}045 & 78.0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The tiers also differ in order composition, and the differences matter for the results. Table~\ref{tab:composition} reports the breakdown. Almost every order is a limit order, and no order is a market order, because CoW routes market-style flow as marketable limit orders. The short tier additionally carries CoW native liquidity orders, which is baseline on-chain liquidity offered into the auction and exists only for the deepest pair. Sell orders dominate throughout, and their share rises as liquidity falls, from $88$ percent in the short tier to $96$ percent in the long tier. Partially-fillable orders, which the fill analysis of Section~\ref{sec:res-fill} shows reach full execution only about half the time, are three times as common in the short tier as in the others, at $15$ percent against about $5$ percent. This composition, not a difference in execution quality, is what drives the fill-rate pattern of Section~\ref{sec:res-fill}.
+
+\begin{table}[t]
+\centering
+\caption{Order-type composition by liquidity tier, as a share of the marketable orders in each tier. Class is order class; direction is buy versus sell; partially-fillable is the share of orders that may fill in part rather than all-or-none.}
+\label{tab:composition}
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+Tier & Limit (\%) & Liquidity (\%) & Sell (\%) & Buy (\%) & Partially-fillable (\%) \\
+\midrule
+Short & 86.9 & 13.1 & 88.0 & 12.0 & 14.6 \\
+Mid   & 100.0 & 0.0 & 92.1 & 7.9 & 4.5 \\
+Long  & 100.0 & 0.0 & 95.8 & 4.2 & 4.8 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ===========================================================================
+\section{Methodology}
+\label{sec:method}
+% ===========================================================================
+
+\subsection{A multi-factor execution-quality index}
+\label{sec:index}
+
+I map execution quality onto the statutory factors rather than onto price. For order $i$ I define four components.
+
+\begin{definition}[Execution-quality components]
+\label{def:components}
+Let $q_i$ be the realised output, $\hat q_i$ the routed counterfactual output at the settlement block, $c_i$ the costs the user bears, and $N_i$ the order notional; let $D_i \in \{0,1\}$ indicate whether the order filled, $X_i$ the order characteristics it is conditioned on, and $t^{\text{submit}}_i$ and $t^{\text{settle}}_i$ the times at which the intent is signed and the settlement transaction is mined.
+\begin{align}
+\text{Price improvement:}\quad & \mathrm{PI}_i = 10^4 \cdot \frac{(q_i - c_i) - \hat q_i}{N_i} \quad \text{(bps of notional)}, \label{eq:pi}\\
+\text{Fill probability:}\quad & \mathrm{FP}_i = \Prb(D_i = 1 \mid X_i), \label{eq:fp}\\
+\text{Settlement latency:}\quad & \mathrm{SL}_i = t^{\text{settle}}_i - t^{\text{submit}}_i \quad \text{(s)}, \label{eq:sl}\\
+\text{Settlement risk:}\quad & \mathrm{SR}_i = \Prb(\text{winning solution fails to execute as proposed}). \label{eq:sr}
+\end{align}
+\end{definition}
+
+$\mathrm{PI}$ is net of costs, as the total-consideration formulation of the standard requires. $\mathrm{SL}$ operationalises speed as submit-to-settle time. $\mathrm{SR}$ maps to the likelihood-of-settlement factor. I do not collapse these into a scalar with fixed weights, because the regulation does not fix weights. It makes relative importance depend on client, order and instrument. I report the vector and a partial order. Tier $A$ \emph{dominates} tier $B$ if it is weakly better on all four components and strictly better on one. Where dominance fails I report the trade-off, which is the honest statement and the one an execution policy needs. Table~\ref{tab:mapping} records the mapping and the observability of each factor.
+
+\begin{table}[t]
+\centering
+\caption{Mapping of statutory factors to measured components.}
+\label{tab:mapping}
+\small
+\begin{tabular}{p{0.32\linewidth}p{0.20\linewidth}p{0.40\linewidth}}
+\toprule
+Statutory factor (MiFID~II Art.~27 / FinSA Art.~18) & Component & Observability in intent data \\
+\midrule
+Price & $\mathrm{PI}$, RCM & Winner observed; counterfactual from losing bids or routing \\
+Costs & $\mathrm{PI}$ net of fees, gas & Directly observed on-chain \\
+Speed & $\mathrm{SL}$ & From order and block timestamps \\
+Likelihood of execution & $\mathrm{FP}$ & Requires the submission cohort; not at order level from settlement \\
+Likelihood of settlement & $\mathrm{SR}$ & From settlement-transaction outcomes \\
+Size & interaction & Conditioning variable throughout \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{The observable counterfactual}
+\label{sec:counterfactual}
+
+For each executed order the losing bids yield a counterfactual that conventional analysis lacks. Let $r_i^{\mathrm{win}}$ be the winner's execution price ratio, output over input, and let $b_i$ be the best ratio among solvers offering an executable fill other than the winner.
+
+\begin{definition}[Realised competitive margin]
+\label{def:margin}
+\begin{equation}
+\mathrm{RCM}_i \;:=\; 10^4 \cdot \frac{r_i^{\mathrm{win}} - b_i}{b_i} \quad \text{(bps)}.
+\label{eq:rcm}
+\end{equation}
+\end{definition}
+
+The ratio $r = \text{buy}/\text{sell}$ is monotone in user welfare and robust to partial fills, so~\eqref{eq:rcm} is valid for buy and sell orders alike. $\mathrm{RCM}_i$ is the surplus the winning execution retained over the best available losing counterparty for the same order~\citep{cowdao_rules,canidio2024fair}. It is the closest available analogue to the counterfactual a supervisor wants when asking whether a firm obtained the best possible result, and unlike a simulated benchmark it is observed, not modelled. It measures competition inside the solver network. It complements, but does not replace, the routed direct-AMM counterfactual of~\eqref{eq:pi}, which measures the alternative of executing directly on-chain. Best execution in the regulatory sense requires consideration of venues outside the chosen one, so both are needed. Figure~\ref{fig:example} shows both counterfactuals on one real auction.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.82\linewidth]{figures/fig_auction_example.pdf}
+\caption{Both counterfactuals for one WETH/USDC order ($12$ competing solvers, $1$~ETH notional). Blue points are distinct solvers' offered executions, in basis points relative to the best losing bid at zero; the winner's edge over that bid is the realised competitive margin ($1.43$~bps). The red diamond is the routed direct-AMM price, and the winner's edge over it is the price improvement ($3.6$~bps). Here the direct route is worse even than the best losing solver. Both are counterfactuals a supervisor can observe or route directly rather than infer.}
+\label{fig:example}
+\end{figure}
+
+\subsection{Censored fills}
+\label{sec:censoring}
+
+Prior estimates condition on execution. Let $Y$ denote execution quality, defined on every submitted intent, and let $D$ indicate a fill. Published estimates identify $\E[Y \mid D{=}1]$. The quantity a firm needs is $\E[Y]$, the expectation over all orders it might submit, with unfilled orders carrying their true economic consequence. The following decomposition is exact and assumption-free.
+
+\begin{proposition}[Selection-bias decomposition]
+\label{prop:bias}
+For $Y$ defined on all submitted intents and $D \in \{0,1\}$,
+\begin{equation}
+\boxed{\;\E[Y \mid D=1] - \E[Y] \;=\; \Prb(D=0)\,\bigl(\E[Y \mid D=1] - \E[Y \mid D=0]\bigr).\;}
+\label{eq:bias}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+By the law of total expectation, $\E[Y] = \Prb(D{=}1)\,\E[Y \mid D{=}1] + \Prb(D{=}0)\,\E[Y \mid D{=}0]$. Subtracting from $\E[Y \mid D{=}1]$ and using $1 - \Prb(D{=}1) = \Prb(D{=}0)$ gives~\eqref{eq:bias}.
+\end{proof}
+
+\begin{corollary}
+\label{cor:bias}
+The naive filled-only mean overstates $\E[Y]$ if and only if $\E[Y \mid D{=}1] > \E[Y \mid D{=}0]$, and the overstatement scales linearly in the non-fill rate $\Prb(D{=}0)$.
+\end{corollary}
+
+Corollary~\ref{cor:bias} makes the non-fill rate the key statistic, and it says the bias favours the venue whenever filled orders carry higher quality than unfilled ones would, which is the expected sign. The decomposition is verified numerically to machine precision. The empirical question is then how large $\Prb(D{=}0)$ is once measured on the submission cohort rather than a survivorship-biased snapshot, and I answer it in Section~\ref{sec:res-fill}. Measuring fill probability requires the set of \emph{submitted} intents, which the settlement record alone does not contain. I recover it from the auction risk set, the full list of live orders the protocol carries in each batch, and I condition on \emph{marketability}, meaning that at least one solver offered an executable fill within the order's limit.
+
+\subsection{Competition and identification}
+\label{sec:competition}
+
+I measure competition at the order level, by the count of distinct solvers offering an executable fill and the dispersion of their bids. Prior work on intent venues instead reads competition off market structure, solver concentration and entry rather than the bids themselves, as in the filler Herfindahl indices of \citet{zhang2026incentives} and the entry-and-oligopoly analysis of \citet{chitra2024intent}. Market structure conflates competition with specialisation, since a market where many solvers bid but one is consistently best is concentrated and intensely competitive at once; the published losing bids let me go beyond it and measure competition where it actually occurs, order by order. For identification of the competition effect I use the reward-rule reform enacted through CoW governance as CIP-74, effective 8~December~2025~\citep{cowdao_rewards,zhang2026incentives}, which falls inside the census window. I report the outcome variables before and after the event. This is a single-chain interrupted comparison, not the cross-chain difference-in-differences a stronger design would use, so I read it against the external benchmark of \citet{zhang2026incentives} rather than as a clean causal estimate.
+
+% ===========================================================================
+\section{Results}
+\label{sec:results}
+% ===========================================================================
+
+Every estimate below is computed from the cached census of Section~\ref{sec:data} and is reproducible from it.
+
+\subsection{The competitive margin falls with order size}
+\label{sec:res-size}
+
+The realised competitive margin declines by an order of magnitude across the order-size distribution. Table~\ref{tab:size} reports the median $\mathrm{RCM}$ by decile of order notional in ETH. It falls almost monotonically from $13.0$ basis points in the smallest decile, with median notional $0.02$~ETH, to about $1$ basis point in the largest, with median notional $43$~ETH. The mechanism is solver disagreement, not scarce liquidity. A small order barely moves any pool, so its execution is not pinned down by liquidity depth. It is decided instead by how a solver routes, how it handles gas and fixed costs, and whether it can net the order internally against an opposing order, and solvers differ on all three. A large order is dominated by price impact against the deepest pools, which every competent solver sees identically, so the proposals converge and the winner beats the next best by almost nothing. The surplus is therefore concentrated in small orders. This holds on real competition data without any simulation.
+
+\begin{table}[t]
+\centering
+\caption{Median realised competitive margin by order-size decile. Each decile holds about $54{,}000$ orders.}
+\label{tab:size}
+\small
+\begin{tabular}{lrrrrrrrrrr}
+\toprule
+Decile & D1 & D2 & D3 & D4 & D5 & D6 & D7 & D8 & D9 & D10 \\
+\midrule
+Median notional (ETH) & 0.02 & 0.09 & 0.17 & 0.26 & 0.42 & 0.73 & 1.37 & 2.76 & 8.49 & 43.4 \\
+Median RCM (bps)      & 13.0 & 4.4  & 3.0  & 2.8  & 2.2  & 1.6  & 1.2  & 0.9  & 0.9  & 1.1  \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{The margin rises as liquidity falls, and so does price improvement}
+\label{sec:res-pi}
+
+A second gradient runs across pair liquidity, and here scarce liquidity is the mechanism. The median margin rises from $1.26$ basis points in the short tier to $2.46$ in the mid tier and $2.50$ in the long tier. Thin, fragmented liquidity leaves more room for solvers to differ, so the winner beats the next best by more. Table~\ref{tab:tiersize} crosses the two gradients, reporting the median margin by size tercile within each tier. The tier gradient holds for small and mid-size orders, and the largest margin, $5.7$ basis points, is the small-order long-tail cell. For the largest orders the margins converge to about one basis point across all three tiers, because a large order forces every solver into the same deep execution regardless of the token. The two effects therefore coincide in the small-order long-tail corner and both switch off in the large-order corner. Figure~\ref{fig:auction} shows the same mechanism as a distribution. Pooling every competing bid across all settled orders, the losing bids cluster closest to the winning execution in the short tier and shift progressively further out through the mid and long tiers, the median losing bid trailing the winner by $5.9$, $12.0$ and $13.5$ basis points. The realised competitive margin is the winner's edge over the closest of these bids, the left shoulder of each distribution.
+
+\begin{table}[t]
+\centering
+\caption{Median realised competitive margin (bps) by size tercile within each liquidity tier.}
+\label{tab:tiersize}
+\small
+\begin{tabular}{lrrr}
+\toprule
+Tier & Small & Mid & Large \\
+\midrule
+Short & 2.82 & 0.78 & 1.19 \\
+Mid   & 3.76 & 2.60 & 1.63 \\
+Long  & 5.72 & 2.72 & 0.97 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.78\linewidth]{figures/fig_auction_tiers.pdf}
+\caption{Distribution of competing solver bids across all settled orders, by liquidity tier. Each losing bid contributes its shortfall from the winning execution, in basis points on a log scale; dotted lines mark the tier medians. The field of competing bids sits closest to the winner in the short tier and shifts progressively further out through the mid and long tiers, the median losing bid trailing the winner by $5.9$, $12.0$ and $13.5$ basis points. This is the aggregate, all-orders form of the order-level competitive margin.}
+\label{fig:auction}
+\end{figure}
+
+The routed direct-AMM counterfactual tells the same story against a different benchmark. Following \citet{bachu2024quantifying}, I route each order through the Uniswap smart-order-router pinned to its settlement block and compute price improvement over that route, gross and net of the direct-swap gas the intent user avoids. Table~\ref{tab:pi} reports the result on the reliable set, meaning orders whose token pair has enough Uniswap liquidity for a well-defined route. For the short tier the median price improvement is economically negligible, near zero at $0.5$ basis points net, and as likely negative as positive, since only $47$ percent of orders improve on the direct route. For the mid and long tiers price improvement is large and usually positive, at $28$ and $20$ basis points net and positive for $82$ and $75$ percent of orders. The reading is direct. For blue-chip pairs a direct AMM route is already near-optimal, so the auction adds almost nothing. Against a direct route, then, the auction adds value only where liquidity is scarce.
+
+\begin{table}[t]
+\centering
+\caption{Price improvement versus a routed direct-AMM counterfactual, by tier, over the full census ($464{,}880$ reliable orders).}
+\label{tab:pi}
+\small
+\begin{tabular}{lrrr}
+\toprule
+Tier & Median PI, net (bps) & Positive (\%) & Volume-weighted PI, gross (bps) \\
+\midrule
+Short & $0.5$  & 46.9 & 34.8 \\
+Mid   & $27.5$ & 81.9 & 114.4 \\
+Long  & $20.4$ & 74.9 & 3.4 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Fill probability, and how much conditioning on fills overstates quality}
+\label{sec:res-fill}
+
+Measured on the submission cohort, the fill picture separates two things a snapshot conflates. Table~\ref{tab:fill} reports, per tier, the marketability rate, the fill rate conditional on marketability, and the pooled fill rate. Marketability differs sharply by tier. It is low only in the blue-chip short tier, at $16$ percent: WETH/USDC attracts a large standing book of far-from-market resting limit orders, at prices the market never reaches, that no solver can fill. In the mid and long tiers most submitted orders are marketable, at $72$ and $55$ percent, so the resting-order phenomenon is specific to the deepest pair rather than a property of intent flow in general. Conditional on marketability the fill rate is uniformly high, from $89$ to $95$ percent, and it is the short tier, not the illiquid tiers, that fills least often. The pooled rate, from $14$ percent in the short tier to $68$ in the mid tier, tracks marketability and is the misleading number where marketability is low.
+
+That the blue-chip tier fills least often is a composition effect, not a venue deficit. Table~\ref{tab:filldecomp} decomposes the marketable orders by type and makes the two reasons transparent. Partially-fillable orders reach full execution only about half to three-fifths of the time, because they fill in part and the residual expires or is cancelled, and the short tier carries three times the share of such orders, the large, splittable orders that the deepest pair attracts. Short-tier orders are also cancelled three to four times as often, which reflects active quote management on the most heavily traded pair. Neither is a failure to execute. Among fill-or-kill orders, which fill entirely or not at all, the short tier fills most reliably of the three, at $98$ percent, and it does not expire more often than the others.
+
+\begin{table}[t]
+\centering
+\caption{Fill decomposition by order type, for marketable orders in each tier. Partially-fillable orders fill in full only about half the time; the short tier carries more of them and is cancelled more often, which lowers its aggregate fill rate even though its fill-or-kill orders fill most reliably.}
+\label{tab:filldecomp}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Tier & Partially-fillable share & Fill $\mid$ partially-fillable & Fill $\mid$ fill-or-kill & Cancelled \\
+\midrule
+Short & 0.15 & 0.50 & 0.98 & 0.056 \\
+Mid   & 0.04 & 0.60 & 0.97 & 0.012 \\
+Long  & 0.05 & 0.57 & 0.96 & 0.015 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+This is Corollary~\ref{cor:bias} made concrete. The naive filled-only mean does overstate quality, so the censoring is real and the correction is not cosmetic. But the overstatement is bounded, because most of the non-fill mass is user price-setting rather than venue failure. The censoring-relevant non-fill rate is the roughly $5$ to $11$ percent of \emph{marketable} orders that do not fill, largest in the short tier. It is non-negligible and it favours the venue, exactly as Corollary~\ref{cor:bias} predicts, but it is far from the $86$ percent that a naive reading of the short-tier pooled rate would suggest.
+
+\begin{table}[t]
+\centering
+\caption{Submission-cohort fill measurement by tier ($1{,}853{,}859$ /USDC arrivals). Marketable: at least one solver offered an executable fill within the limit.}
+\label{tab:fill}
+\small
+\begin{tabular}{lrrr}
+\toprule
+Tier & Marketability rate & Fill $\mid$ marketable & Fill, pooled \\
+\midrule
+Short & 0.16 & 0.90 & 0.14 \\
+Mid   & 0.72 & 0.95 & 0.68 \\
+Long  & 0.55 & 0.94 & 0.52 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Robustness and the competition effect}
+\label{sec:res-comp}
+
+The size and liquidity gradients are not a one-month artifact. Across the monthly buckets of the census the median margin stays in a $1$ to $4$ basis-point band and the mean number of order-level bidders in a $4$ to $8$ band, with no trend or level break (Figure~\ref{fig:ts}). The reward reform CIP-74 falls inside the window, with four pre-event months and nine after. Comparing means, the median margin moves from $1.6$ to $2.3$ basis points, the mean bidder count from $5.6$ to $6.1$, and contestability from $75.5$ to $78.0$ percent. The changes are small and, for execution quality, well inside the roughly seven basis-point bound within which \citet{zhang2026incentives} reports no detectable effect. My reading is consistent with his. The reform did not materially move execution quality, and competition did not collapse.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.78\linewidth]{figures/fig_timeseries.pdf}
+\caption{Median realised competitive margin (left axis) and mean order-level bidders (right axis) by calendar month, with CIP-74 marked. Both series are stable across the twelve-month census.}
+\label{fig:ts}
+\end{figure}
+
+\subsection{The multi-factor comparison with the broker}
+\label{sec:res-mf}
+
+The preceding subsections measured price, competition and fill for the intent tiers; this subsection collects them, adds settlement, and sets them against a broker. Because best execution is a duty of the broker that routes the order, the right comparison for a broker-free architecture is the broker a client would otherwise use, and I take that benchmark from the retail-equity best-execution literature, the most thoroughly measured instance of broker-intermediated execution. \citet{schwarz2025actual} route identical retail orders through several brokers and find realised execution that differs widely across them; as a stylised benchmark, marketable retail orders receive a few basis points of price improvement and fill almost always, and US retail equity settles at T+1, one business day, with a settlement-fail rate near two percent~\citep{dtcc_t1}. One caveat matters: this benchmark is a single figure pooled across instruments, not stratified by a liquidity tier as my intent results are, because no comparably stratified record of broker execution quality exists, least of all for crypto assets. A fully like-for-like test would route the same orders through a regulated broker and stratify its quality by the same tiers; absent that, I read the broker as a common reference point against which each intent tier is compared, not as a tier-matched counterpart, and I return to this in Section~\ref{sec:limits}.
+
+Table~\ref{tab:mf} places the three intent tiers next to this benchmark on the four factors, and Figure~\ref{fig:mf} draws them. Read the tiers first. Settlement is effectively identical across them: every tier reaches finality in about fifty seconds, the small differences are within sampling noise, and settlement risk is zero to measurement precision because CoW penalises solutions that fail to execute. The tiers therefore separate only on price and fill, and the mid tier leads on both: it improves price the most, at $28$ basis points net, and fills marketable orders most often, at $95$ percent. So among the tiers the mid tier dominates the long, and the short tier is weakest, because for blue-chip pairs a direct AMM route is already near-optimal and the auction has almost no price to add. Mid-cap flow thus gets the best all-round execution; the sharper incomparability is not among the tiers but with the broker.
+
+Now read the broker against them. This is where incomparability genuinely bites. The broker fills marketable orders marginally more often than any intent tier, at $99$ percent against $90$ to $95$, but it improves price far less, a few basis points against the tiers' tens, and on settlement the comparison is not close: intent orders reach final settlement in about fifty seconds and almost never fail, whereas a broker-routed equity trade executes in milliseconds but settles at T+1, one business day, and fails to settle about two percent of the time. No arrangement is therefore best on every factor: the broker edges the intent venue on fill, the venue beats the broker on price and dominates it on settlement, and neither dominates the other. In Figure~\ref{fig:mf} the broker collapses to the centre on both settlement axes while the intent tiers sit together at the rim. Execution quality cannot be reduced to a single weighted score without importing a weighting the regulation deliberately leaves to client and order type. What the figure cannot show is the evidentiary difference developed in Section~\ref{sec:discussion}, which is where execution without a broker is not merely competitive but categorically different.
+
+\begin{table}[t]
+\centering
+\caption{Multi-factor execution-quality vector for the three intent tiers and a retail-broker benchmark. Intent fill is the submission-cohort marketable rate of Table~\ref{tab:fill}; latency is submit-to-settle. Broker figures are stylised US retail-equity benchmarks: realised execution varies widely across brokers~\citep{schwarz2025actual}, marketable orders receive a few basis points of price improvement and fill almost always, and equity trades settle at T+1 (about $86{,}400$~s to finality, though execution is sub-second) with a Continuous Net Settlement fail rate near $2.1$ percent~\citep{dtcc_t1}. The mid tier leads the intent tiers on price and fill; all three dominate the broker on settlement, while the broker fills marginally more often. Settlement latency is statistically indistinguishable across the tiers.}
+\label{tab:mf}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+& PI net (bps) & Fill rate & Settlement latency (s) & Settlement-fail rate \\
+\midrule
+Short-tail     & $0.5$  & 0.90 & 46.5 & 0.000 \\
+Mid-tail       & $27.5$ & 0.95 & 48.6 & 0.000 \\
+Long-tail      & $20.4$ & 0.94 & 50.7 & 0.000 \\
+Retail broker  & $\approx 2$ & 0.99 & $86{,}400$ & 0.021 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.74\linewidth]{figures/fig_multifactor.pdf}
+\caption{Spider chart of the four execution-quality components for the three intent tiers and the retail-broker benchmark, each axis min-max normalised across all four so that higher is better. Among the tiers the mid polygon reaches furthest on both price and fill and the tiers coincide on the two settlement axes, so mid-cap flow dominates the others. The genuine incomparability is with the broker (dashed), which fills marginally more often but improves price far less and collapses to the centre on both settlement axes, where the three tiers sit together at the rim because their settlement differences are seconds against the broker's T+1 day. The price axis measures improvement over each system's accessible alternative, a direct AMM route for the tiers and the consolidated quote for the broker.}
+\label{fig:mf}
+\end{figure}
+
+% ===========================================================================
+\section{Discussion: Implications for Regulated Institutions}
+\label{sec:discussion}
+% ===========================================================================
+
+\paragraph{The auction record as compliance evidence} A broker's best-execution monitoring rests on transaction cost analysis, which reconstructs a counterfactual because the actual alternatives are unobservable. An intent auction record contains the alternatives themselves. A broker routing client orders to such a venue, or a bank acting as its own execution agent, can evidence per order the competing executions available at that moment, the margin by which the selected one beat the next best, and the settlement outcome. That record is more complete than the benchmark a broker reconstructs from a consolidated tape, and a third party can verify it without the broker's cooperation. This is a genuine argument for on-chain execution that has not, to my knowledge, been made in the terms a supervisor would recognise. It is not an argument about cost or speed. It is an argument about evidentiary completeness, and its force is empirical rather than rhetorical, because the losing bids are there to be audited.
+
+\paragraph{Comparison with broker execution} Because best execution is a duty of the broker that routes the order, the apposite benchmark is broker-intermediated retail execution rather than a venue, and that benchmark is instructive. \citet{schwarz2025actual} route identical retail orders through several brokers and find realised execution costs that vary widely and systematically across them, so realised execution quality depends materially on where the broker sends the order. The magnitudes I measure, competitive margins from about one to thirteen basis points and price improvement up to twenty-eight basis points in the less liquid tiers, are of the same order as the few-basis-point improvement reported for order flow auctions~\citep{bachu2024quantifying} and for retail equity execution, where rebate-driven routing conflicts measurably erode limit-order quality~\citep{battalio2016brokers} and payment for order flow degrades option execution~\citep{ernst2026pfof}. At the venue level, \citet{barbon2026quality} find that centralised venues still provide better market quality for ordinary trade sizes while decentralised venues become cost-competitive above roughly ten thousand dollars and undercut every centralised venue for the largest trades, above one hundred thousand dollars, the same large-order corner where I find the auction adds least. On execution quality alone, then, the broker-free architecture is broadly comparable to broker-intermediated retail execution: of the same order in price improvement, similar in the likelihood of execution, and materially better only in settlement. What sets the two apart is not execution quality but the evidentiary completeness discussed above.
+
+\paragraph{The bank as solver} The business-model implication runs opposite to the usual one, which casts the bank as a client of on-chain venues. Solvers profit from privileged liquidity access, inventory and balance sheet, precisely the endowments a bank has and a specialist must rent. Prior work models how solver entry costs concentrate solving among well-capitalised market makers~\citep{chitra2024intent}, and an empirical study of intent-based cross-chain bridges finds solver liquidity and capital constraints binding in practice~\citep{augusto2026liquidity}. A bonded, regulated solver would be a competitive market maker whose bids are publicly scored, whose failures are penalised by the protocol, and whose participation is verifiable. The barriers to entry are comparatively low: participation ranges from open to lightly permissioned across venues, gated mainly by a performance bond rather than by exchange membership or large capital thresholds, so a regulated intermediary could act as a solver without the infrastructure a venue seat demands. This points to a possible future for the broker's role itself, migrating from routing a client's order to competing, as a bonded solver, to fill it. Whether this is attractive depends on the returns to solving and on whether acting as a solver is a regulated activity in the relevant jurisdiction. That legal question is unresolved and I do not resolve it. I note only that a solver exercises discretion over another party's execution for compensation, which is at minimum a fact pattern that invites analysis.
+
+\paragraph{Execution policy} The practical output is not a verdict but a boundary. Where a tier dominates for an order class, routing is straightforwardly defensible. Where dominance fails, as it does across the three tiers here, the policy must state how the trade-off is resolved for the client type. The two gradients make the boundary operational. The competitive margin collapses from about $13$ basis points for the smallest orders to about $1$ for the largest, and price improvement over a direct route is near zero for blue-chip pairs and double digits for illiquid ones. The natural policy parameter is the \emph{indifference boundary}, the combination of order size and pair liquidity beyond which intent execution ceases to be demonstrably better than a well-executed direct alternative. On the present evidence the case for routing to an intent venue is strong for small orders in less liquid pairs and weak for large orders in blue-chip pairs. That boundary, not a blanket endorsement, is what an execution policy can defensibly encode.
+
+% ===========================================================================
+\section{Limitations}
+\label{sec:limits}
+% ===========================================================================
+
+Six limitations bound the conclusions, in order of importance. First, the results are specific to CoW Protocol, the intent venue that chooses to publish its competition record. The per-order Dutch-auction venues, UniswapX and 1inch Fusion, may deliver different execution quality, and they do not publish their losing quotes. The observable-counterfactual advantage documented here is therefore a property of CoW's disclosure, not of intent settlement or of batch auctions in general: nothing in a batch-clearing auction requires the losing solutions to be revealed. On-chain settlement makes all of these venues more transparent than a traditional broker; publishing the counterfactual is a further step that only some take. Second, the broker benchmark is a single reference point taken from the retail-equity best-execution literature, not a measurement of my own, and it reports execution quality pooled across instruments rather than stratified by a liquidity tier as the intent results are. A like-for-like test would route the same orders through a regulated broker and stratify the broker's quality by the same tiers, but no such record exists for crypto assets, so the broker figures should be read as a common reference against which each intent tier is compared, not as a tier-matched counterpart. Third, the routed counterfactual is a model of the direct alternative, even though the competitive margin is not. The router does account for the order's mechanical price impact against pool liquidity at the settlement block, but it does not reproduce the adversarial environment a real direct trade would meet, the front-running and sandwiching that intent settlement is designed to prevent, nor any dynamic market response, so it is best read as a clean, well-executed direct route rather than the one a user would actually obtain; it is also defined only where the pair has enough Uniswap liquidity to route. Fourth, the census covers a single twelve-month window, because losing-bid records are retained by the public API for only twelve to eighteen months, so a longer panel is not currently retrievable and whether the gradients persist across a full market cycle is untested. Fifth, the competition identification is a single-chain before-and-after around one governance event with few pre-event windows; it is consistent with the external benchmark but is not the cross-chain difference-in-differences a clean causal claim would require. Sixth, the flow these venues intermediate is retail and semi-professional, so extrapolating to institutional order sizes requires either that the size gradient be stable out of sample, which I cannot verify, or that institutional flow be observed directly, which it is not yet at scale; this constrains how strongly the institutional conclusions of Section~\ref{sec:discussion} can be stated, and it is not remediable within the present design.
+
+% ===========================================================================
+\section{Conclusion}
+\label{sec:conclusion}
+% ===========================================================================
+
+Best execution is a broker's duty, and this paper asks whether the duty can be discharged without a broker. The answer, on twelve months of intent-settled trades benchmarked against retail broker execution, is that it can, and on one dimension it must be. On price, execution without a broker is comparable to a broker for liquid pairs and better for illiquid ones. On the likelihood of execution it is comparable. On settlement it dominates, clearing in seconds rather than a day and almost never failing. These execution differences are real but bounded, and no arrangement is best on every factor. The unbounded difference is evidentiary. A broker's best-execution benchmark is inferred from a consolidated tape, a model of the unexecuted alternative. On-chain settlement is observable by construction, and the CoW auction goes further and publishes the alternatives themselves as losing bids, so the counterfactual is observed rather than modelled, and the value competition delivered can be measured rather than asserted. That value, the realised competitive margin, is largest where solvers most disagree about the price, in small orders and illiquid pairs, and vanishes for large orders in liquid pairs. Whether execution without a broker is \emph{better} is therefore a boundary in order size and pair liquidity. That it can be \emph{evidenced} without a broker, better than a broker ever could, is the more durable finding, and the one with the clearest implication for how regulated institutions should engage with on-chain settlement.
+
+% ===========================================================================
+\section*{Acknowledgement}
+% ===========================================================================
+
+This research received no external funding.
+
+% ===========================================================================
+\section*{Author Contributions}
+% ===========================================================================
+
+N.B.\ is the sole author and performed all aspects of the study: conception, data collection, analysis, and writing.
+
+% ===========================================================================
+\section*{Conflict of Interest}
+% ===========================================================================
+
+The author declares no conflict of interest.
+
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+
+\end{document}

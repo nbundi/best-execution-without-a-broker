@@ -1,0 +1,32 @@
+{
+  "factors": {
+    "short": {
+      "PI_net_bps": 0.55,
+      "fill_rate": 0.895,
+      "latency_s_median": 46.5,
+      "settle_fail_rate": 0.0
+    },
+    "mid": {
+      "PI_net_bps": 27.52,
+      "fill_rate": 0.954,
+      "latency_s_median": 48.6,
+      "settle_fail_rate": 0.0
+    },
+    "long": {
+      "PI_net_bps": 20.4,
+      "fill_rate": 0.938,
+      "latency_s_median": 50.7,
+      "settle_fail_rate": 0.0
+    },
+    "broker": {
+      "PI_net_bps": 2.0,
+      "fill_rate": 0.99,
+      "latency_s_median": 86400.0,
+      "settle_fail_rate": 0.021
+    }
+  },
+  "dominance": {
+    "mid>long": true
+  },
+  "note": "Vector reported as a partial (dominance) order; no fixed-weight scalar."
+}

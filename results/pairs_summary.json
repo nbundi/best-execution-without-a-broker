@@ -1,0 +1,206 @@
+{
+  "provenance": {
+    "source": "https://api.cow.fi/mainnet",
+    "chain": "ethereum-mainnet",
+    "mode": "census",
+    "latest": 13593661,
+    "months": 12,
+    "n_auctions": 565259,
+    "pair_orders_total": 664990,
+    "auction_id_min": 11193662,
+    "auction_id_max": 13593657,
+    "block_min": 23128367,
+    "block_max": 25761651,
+    "meta_fetched": 591800
+  },
+  "tiers": {
+    "short": {
+      "settled_orders": 238073,
+      "distinct_orders": 213966,
+      "distinct_tokens": 5,
+      "top_tokens": [
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+        "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+        "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+        "0xae7ab96520de3a18e5e111b5eaab095312d7fe84"
+      ],
+      "contestable_pct": 72.6,
+      "median_margin_bps": 1.26,
+      "marketable_fill_rate": 0.909
+    },
+    "mid": {
+      "settled_orders": 45357,
+      "distinct_orders": 41490,
+      "distinct_tokens": 14,
+      "top_tokens": [
+        "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
+        "0x514910771af9ca656af840dff83e8264ecf986ca",
+        "0xba100000625a3754423978a60c9317c58a424e3d",
+        "0xd533a949740bb3306d119cc777fa900ba034cd52",
+        "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2",
+        "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984"
+      ],
+      "contestable_pct": 88.1,
+      "median_margin_bps": 2.46,
+      "marketable_fill_rate": 0.954
+    },
+    "long": {
+      "settled_orders": 409534,
+      "distinct_orders": 334531,
+      "distinct_tokens": 3045,
+      "top_tokens": [
+        "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f",
+        "0x56072c95faa701256059aa122697b133aded9279",
+        "0x4e3fbd56cd56c3e72c1403e103b45db9da5b9d2b",
+        "0x45804880de22913dafe09f4980848ece6ecbaf78",
+        "0x68749665ff8d2d112fa859aa293f07a622782f38",
+        "0x57e114b691db790c35207b2e685d4a43181e6061"
+      ],
+      "contestable_pct": 78.0,
+      "median_margin_bps": 2.5,
+      "marketable_fill_rate": 0.938
+    }
+  },
+  "fill_decomposition": {
+    "short": {
+      "n": 213818,
+      "pf_share": 0.145,
+      "fill_partiallyfillable": 0.5,
+      "fill_fillorkill": 0.979,
+      "cancelled_share": 0.056
+    },
+    "mid": {
+      "n": 41588,
+      "pf_share": 0.044,
+      "fill_partiallyfillable": 0.605,
+      "fill_fillorkill": 0.97,
+      "cancelled_share": 0.012
+    },
+    "long": {
+      "n": 335906,
+      "pf_share": 0.047,
+      "fill_partiallyfillable": 0.574,
+      "fill_fillorkill": 0.956,
+      "cancelled_share": 0.015
+    }
+  },
+  "order_type_composition": {
+    "short": {
+      "n": 214035,
+      "limit_pct": 86.9,
+      "liquidity_pct": 13.1,
+      "sell_pct": 88.0,
+      "buy_pct": 12.0,
+      "partfill_pct": 14.6
+    },
+    "mid": {
+      "n": 41605,
+      "limit_pct": 100.0,
+      "liquidity_pct": 0.0,
+      "sell_pct": 92.1,
+      "buy_pct": 7.9,
+      "partfill_pct": 4.5
+    },
+    "long": {
+      "n": 336160,
+      "limit_pct": 100.0,
+      "liquidity_pct": 0.0,
+      "sell_pct": 95.8,
+      "buy_pct": 4.2,
+      "partfill_pct": 4.8
+    }
+  },
+  "size_decile_rcm": [
+    {
+      "decile": 1,
+      "n": 54003,
+      "median_notional_eth": 0.0207,
+      "median_rcm_bps": 13.04
+    },
+    {
+      "decile": 2,
+      "n": 54002,
+      "median_notional_eth": 0.0908,
+      "median_rcm_bps": 4.38
+    },
+    {
+      "decile": 3,
+      "n": 57353,
+      "median_notional_eth": 0.1737,
+      "median_rcm_bps": 3.02
+    },
+    {
+      "decile": 4,
+      "n": 50684,
+      "median_notional_eth": 0.2625,
+      "median_rcm_bps": 2.81
+    },
+    {
+      "decile": 5,
+      "n": 53971,
+      "median_notional_eth": 0.421,
+      "median_rcm_bps": 2.21
+    },
+    {
+      "decile": 6,
+      "n": 54002,
+      "median_notional_eth": 0.7302,
+      "median_rcm_bps": 1.62
+    },
+    {
+      "decile": 7,
+      "n": 54002,
+      "median_notional_eth": 1.3731,
+      "median_rcm_bps": 1.22
+    },
+    {
+      "decile": 8,
+      "n": 54003,
+      "median_notional_eth": 2.7596,
+      "median_rcm_bps": 0.87
+    },
+    {
+      "decile": 9,
+      "n": 54002,
+      "median_notional_eth": 8.4903,
+      "median_rcm_bps": 0.9
+    },
+    {
+      "decile": 10,
+      "n": 54003,
+      "median_notional_eth": 43.3835,
+      "median_rcm_bps": 1.07
+    }
+  ],
+  "rcm_by_tier_and_size": {
+    "short": {
+      "small": 2.82,
+      "mid": 0.78,
+      "large": 1.19
+    },
+    "mid": {
+      "small": 3.76,
+      "mid": 2.6,
+      "large": 1.63
+    },
+    "long": {
+      "small": 5.72,
+      "mid": 2.72,
+      "large": 0.97
+    }
+  },
+  "bid_shortfall_median_bps": {
+    "short": 5.88,
+    "mid": 11.95,
+    "long": 13.51
+  },
+  "representative_auction": {
+    "auctionId": 11193767,
+    "uid": "0x3bfc1c56f0f4a3a8601ecc406f115f62112a3d7c7529e83f4d10672457792ad1ba3cb449bd2b4adddbc894d8697f5170800eadecffffffff",
+    "notional_eth": 1.0,
+    "n_bidders": 12,
+    "rcm_bps": 1.43,
+    "pi_bps": 3.6
+  }
+}

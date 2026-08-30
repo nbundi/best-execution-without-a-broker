@@ -1,0 +1,145 @@
+{
+  "windows": [
+    {
+      "window": "2025-08",
+      "date": "2025-08-22",
+      "ts": 1755843787.17702,
+      "n": 53472,
+      "median_rcm_bps": 2.07,
+      "contestable_pct": 74.1,
+      "mean_bidders": 5.17,
+      "post_cip74": false
+    },
+    {
+      "window": "2025-09",
+      "date": "2025-09-16",
+      "ts": 1758031861.822307,
+      "n": 64986,
+      "median_rcm_bps": 1.57,
+      "contestable_pct": 77.9,
+      "mean_bidders": 5.63,
+      "post_cip74": false
+    },
+    {
+      "window": "2025-10",
+      "date": "2025-10-15",
+      "ts": 1760549942.8295057,
+      "n": 77965,
+      "median_rcm_bps": 1.44,
+      "contestable_pct": 73.1,
+      "mean_bidders": 5.58,
+      "post_cip74": false
+    },
+    {
+      "window": "2025-11",
+      "date": "2025-11-15",
+      "ts": 1763193456.1736493,
+      "n": 74608,
+      "median_rcm_bps": 1.33,
+      "contestable_pct": 77.0,
+      "mean_bidders": 5.94,
+      "post_cip74": false
+    },
+    {
+      "window": "2025-12",
+      "date": "2025-12-15",
+      "ts": 1765808666.7129,
+      "n": 62786,
+      "median_rcm_bps": 1.78,
+      "contestable_pct": 77.5,
+      "mean_bidders": 5.31,
+      "post_cip74": true
+    },
+    {
+      "window": "2026-01",
+      "date": "2026-01-17",
+      "ts": 1768678023.410666,
+      "n": 58940,
+      "median_rcm_bps": 2.14,
+      "contestable_pct": 76.0,
+      "mean_bidders": 4.79,
+      "post_cip74": true
+    },
+    {
+      "window": "2026-02",
+      "date": "2026-02-12",
+      "ts": 1770908130.0134327,
+      "n": 60198,
+      "median_rcm_bps": 3.35,
+      "contestable_pct": 71.6,
+      "mean_bidders": 4.23,
+      "post_cip74": true
+    },
+    {
+      "window": "2026-03",
+      "date": "2026-03-15",
+      "ts": 1773606982.2177827,
+      "n": 49186,
+      "median_rcm_bps": 2.93,
+      "contestable_pct": 79.3,
+      "mean_bidders": 5.33,
+      "post_cip74": true
+    },
+    {
+      "window": "2026-04",
+      "date": "2026-04-16",
+      "ts": 1776354332.8346095,
+      "n": 37265,
+      "median_rcm_bps": 2.91,
+      "contestable_pct": 81.9,
+      "mean_bidders": 6.07,
+      "post_cip74": true
+    },
+    {
+      "window": "2026-05",
+      "date": "2026-05-17",
+      "ts": 1779002237.5772958,
+      "n": 39706,
+      "median_rcm_bps": 2.24,
+      "contestable_pct": 83.4,
+      "mean_bidders": 7.21,
+      "post_cip74": true
+    },
+    {
+      "window": "2026-06",
+      "date": "2026-06-14",
+      "ts": 1781478141.8556342,
+      "n": 48005,
+      "median_rcm_bps": 2.36,
+      "contestable_pct": 79.2,
+      "mean_bidders": 6.6,
+      "post_cip74": true
+    },
+    {
+      "window": "2026-07",
+      "date": "2026-07-17",
+      "ts": 1784270142.379072,
+      "n": 48625,
+      "median_rcm_bps": 1.32,
+      "contestable_pct": 76.1,
+      "mean_bidders": 7.34,
+      "post_cip74": true
+    },
+    {
+      "window": "2026-08",
+      "date": "2026-08-07",
+      "ts": 1786115482.8452427,
+      "n": 17222,
+      "median_rcm_bps": 1.27,
+      "contestable_pct": 77.2,
+      "mean_bidders": 7.69,
+      "post_cip74": true
+    }
+  ],
+  "cip74_event_study": {
+    "pre_windows": 4,
+    "post_windows": 9,
+    "rcm_pre": 1.6,
+    "rcm_post": 2.26,
+    "bidders_pre": 5.58,
+    "bidders_post": 6.06,
+    "contest_pre": 75.53,
+    "contest_post": 78.02
+  },
+  "note": "Single-chain (mainnet) pre/post CIP-74 (8 Dec 2025) comparison; interrupted time series, not a cross-chain DiD. Zhang (2026) is the external benchmark: concentration up, execution quality flat within ~7 bps."
+}

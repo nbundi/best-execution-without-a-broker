@@ -1,0 +1,36 @@
+# Secrets — never commit
+.env
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+
+# OS
+.DS_Store
+
+# Node
+router/node_modules/
+
+# Large raw data & caches — too big for GitHub (individual files up to ~0.5 GB;
+# GitHub rejects >100 MB). Reproduce via the code.py collectors (see README).
+data/
+
+# Python
+__pycache__/
+*.pyc
+
+# Workflow / scratch directories
+audits/
+literature/*
+reviews/*
+.claude/
+
+# Markdown files in root (keep README.md; subfolder .md files are tracked)
+/*.md
+!/README.md
