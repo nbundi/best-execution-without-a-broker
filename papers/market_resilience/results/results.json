@@ -1,0 +1,78 @@
+{
+  "n_orders": 692964,
+  "pivotal_loss_eth": 2585.71,
+  "top1_share": 0.4451,
+  "top2_share": 0.6238,
+  "monthly": [
+    {
+      "month": "2025-08",
+      "mean_bidders": 5.17,
+      "median_gap_bps": 3.23
+    },
+    {
+      "month": "2025-09",
+      "mean_bidders": 5.63,
+      "median_gap_bps": 2.44
+    },
+    {
+      "month": "2025-10",
+      "mean_bidders": 5.58,
+      "median_gap_bps": 2.01
+    },
+    {
+      "month": "2025-11",
+      "mean_bidders": 5.94,
+      "median_gap_bps": 1.97
+    },
+    {
+      "month": "2025-12",
+      "mean_bidders": 5.31,
+      "median_gap_bps": 2.19
+    },
+    {
+      "month": "2026-01",
+      "mean_bidders": 4.79,
+      "median_gap_bps": 2.85
+    },
+    {
+      "month": "2026-02",
+      "mean_bidders": 4.23,
+      "median_gap_bps": 4.28
+    },
+    {
+      "month": "2026-03",
+      "mean_bidders": 5.33,
+      "median_gap_bps": 3.33
+    },
+    {
+      "month": "2026-04",
+      "mean_bidders": 6.07,
+      "median_gap_bps": 3.27
+    },
+    {
+      "month": "2026-05",
+      "mean_bidders": 7.21,
+      "median_gap_bps": 2.57
+    },
+    {
+      "month": "2026-06",
+      "mean_bidders": 6.6,
+      "median_gap_bps": 2.85
+    },
+    {
+      "month": "2026-07",
+      "mean_bidders": 7.34,
+      "median_gap_bps": 1.6
+    },
+    {
+      "month": "2026-08",
+      "mean_bidders": 7.69,
+      "median_gap_bps": 1.44
+    }
+  ],
+  "december_to_february_change": {
+    "mean_bidders": 1.08,
+    "median_gap_bps": 2.09
+  },
+  "interpretation": "Exposure is a fixed-bid, address-level vulnerability measure. The monthly series is descriptive and not an identified exit effect."
+}

@@ -1,0 +1,12 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}\usepackage{amsmath,booktabs,hyperref}
+\title{Resilience Without a Broker\\\large Solver Concentration, Exit Exposure, and Recovery in Intent Markets}
+\author{Working-paper implementation}\date{31 August 2026}
+\begin{document}\maketitle
+\begin{abstract} Brokerless execution markets rely on a small group of specialist solvers.  Using a twelve-month census of submitted and losing solver solutions, this paper measures address-level fixed-bid exposure, tracks participation and pivotal gaps through exit and entry episodes, and defines an event-study design for testing whether exposed users experience worse realised execution.  The present results are descriptive; the proposed matched event study supplies the causal extension.\end{abstract}
+\section{Introduction} Market shares describe who wins.  Resilience depends on who is difficult to replace.  We measure the loss from deleting the top submitted proposal for every order, aggregate that exposure by solver address, and examine how the observed field evolves around solver exits.
+\section{Data and measure} For order $i$, the pivotal gap is $\Delta_i=10^4(r_i^{(1)}-r_i^{(2)})/r_i^{(2)}$.  Notional-weighted gaps attributed to the top bidder define fixed-bid pivotal exposure.  The code reports the full monthly time series and concentration results in \texttt{results/results.json}.
+\section{Descriptive results} The underlying census finds that the top address carries 44.5\% of aggregate pivotal exposure and the top two 62.4\%.  During the December-to-February deterioration, average observed bidder depth fell while the median pivotal gap rose.  Neither fact alone identifies an exit effect: order composition, market conditions, and simultaneous entry change over time.
+\section{Identified expansion} For each major exit, construct pair-by-size exposure from pre-event bids; compare high- and low-exposure cells in an event-study design.  Primary outcomes are AMM-relative realised price improvement, fill probability in the full submission cohort, bid depth, and recovery time.  The identifying prediction is differential deterioration in high-exposure cells after the exit, followed by differential repair when replacement capacity arrives.
+\section{Conclusion} This design moves the policy question from aggregate concentration to measurable user exposure and recovery.  The submitted-bid census is uniquely valuable because exposure is observable before the adverse event.
+\end{document}

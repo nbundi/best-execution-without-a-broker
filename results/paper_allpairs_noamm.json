@@ -1,0 +1,583 @@
+{
+  "mode": "all-pairs; AMM-independent; full stream",
+  "sample": "1/1",
+  "n_orders": 2605216,
+  "n_solvers_ever": 55,
+  "n_months": 17,
+  "marginal_value_curve": {
+    "n_orders": 1191291,
+    "n_auctions": 973011,
+    "B": 400,
+    "shortfall": {
+      "1": {
+        "median_bps": 12.27,
+        "median_ci": [
+          12.25,
+          12.31
+        ],
+        "mean_bps": 24.65,
+        "mean_ci": [
+          24.58,
+          24.73
+        ]
+      },
+      "2": {
+        "median_bps": 5.01,
+        "median_ci": [
+          5.0,
+          5.03
+        ],
+        "mean_bps": 10.8,
+        "mean_ci": [
+          10.77,
+          10.83
+        ]
+      },
+      "3": {
+        "median_bps": 2.77,
+        "median_ci": [
+          2.77,
+          2.78
+        ],
+        "mean_bps": 6.37,
+        "mean_ci": [
+          6.35,
+          6.4
+        ]
+      },
+      "4": {
+        "median_bps": 1.64,
+        "median_ci": [
+          1.63,
+          1.64
+        ],
+        "mean_bps": 4.01,
+        "mean_ci": [
+          3.99,
+          4.02
+        ]
+      },
+      "5": {
+        "median_bps": 0.86,
+        "median_ci": [
+          0.86,
+          0.86
+        ],
+        "mean_bps": 2.45,
+        "mean_ci": [
+          2.44,
+          2.46
+        ]
+      }
+    },
+    "marginal_value": {
+      "2": {
+        "median_bps": 7.26,
+        "median_ci": [
+          7.24,
+          7.29
+        ],
+        "mean_bps": 13.85,
+        "mean_ci": [
+          13.8,
+          13.9
+        ]
+      },
+      "3": {
+        "median_bps": 2.24,
+        "median_ci": [
+          2.23,
+          2.25
+        ],
+        "mean_bps": 4.43,
+        "mean_ci": [
+          4.41,
+          4.44
+        ]
+      },
+      "4": {
+        "median_bps": 1.14,
+        "median_ci": [
+          1.13,
+          1.14
+        ],
+        "mean_bps": 2.37,
+        "mean_ci": [
+          2.36,
+          2.38
+        ]
+      },
+      "5": {
+        "median_bps": 0.78,
+        "median_ci": [
+          0.77,
+          0.78
+        ],
+        "mean_bps": 1.56,
+        "mean_ci": [
+          1.55,
+          1.57
+        ]
+      }
+    }
+  },
+  "shortfall_pooled": {
+    "1": {
+      "median_bps": 12.27,
+      "median_ci": [
+        12.25,
+        12.31
+      ],
+      "mean_bps": 24.65,
+      "mean_ci": [
+        24.58,
+        24.73
+      ]
+    },
+    "2": {
+      "median_bps": 5.01,
+      "median_ci": [
+        5.0,
+        5.03
+      ],
+      "mean_bps": 10.8,
+      "mean_ci": [
+        10.77,
+        10.83
+      ]
+    },
+    "3": {
+      "median_bps": 2.77,
+      "median_ci": [
+        2.77,
+        2.78
+      ],
+      "mean_bps": 6.37,
+      "mean_ci": [
+        6.35,
+        6.4
+      ]
+    },
+    "4": {
+      "median_bps": 1.64,
+      "median_ci": [
+        1.63,
+        1.64
+      ],
+      "mean_bps": 4.01,
+      "mean_ci": [
+        3.99,
+        4.02
+      ]
+    },
+    "5": {
+      "median_bps": 0.86,
+      "median_ci": [
+        0.86,
+        0.86
+      ],
+      "mean_bps": 2.45,
+      "mean_ci": [
+        2.44,
+        2.46
+      ]
+    }
+  },
+  "shortfall_liquidity_quintiles": {
+    "1": {
+      "1": {
+        "median_bps": 181.17,
+        "mean_bps": 297.07
+      },
+      "2": {
+        "median_bps": 81.9,
+        "mean_bps": 156.42
+      },
+      "3": {
+        "median_bps": 40.4,
+        "mean_bps": 87.6
+      },
+      "4": {
+        "median_bps": 19.53,
+        "mean_bps": 43.95
+      },
+      "5": {
+        "median_bps": 0.0,
+        "mean_bps": 12.8
+      },
+      "n": 249
+    },
+    "2": {
+      "1": {
+        "median_bps": 48.77,
+        "mean_bps": 112.87
+      },
+      "2": {
+        "median_bps": 23.38,
+        "mean_bps": 53.61
+      },
+      "3": {
+        "median_bps": 12.53,
+        "mean_bps": 29.48
+      },
+      "4": {
+        "median_bps": 6.33,
+        "mean_bps": 15.81
+      },
+      "5": {
+        "median_bps": 1.27,
+        "mean_bps": 6.74
+      },
+      "n": 949
+    },
+    "3": {
+      "1": {
+        "median_bps": 32.25,
+        "mean_bps": 74.62
+      },
+      "2": {
+        "median_bps": 15.13,
+        "mean_bps": 35.85
+      },
+      "3": {
+        "median_bps": 8.3,
+        "mean_bps": 20.29
+      },
+      "4": {
+        "median_bps": 4.54,
+        "mean_bps": 11.3
+      },
+      "5": {
+        "median_bps": 1.43,
+        "mean_bps": 5.08
+      },
+      "n": 3155
+    },
+    "4": {
+      "1": {
+        "median_bps": 27.21,
+        "mean_bps": 59.17
+      },
+      "2": {
+        "median_bps": 12.83,
+        "mean_bps": 28.12
+      },
+      "3": {
+        "median_bps": 7.3,
+        "mean_bps": 16.45
+      },
+      "4": {
+        "median_bps": 4.09,
+        "mean_bps": 9.69
+      },
+      "5": {
+        "median_bps": 1.71,
+        "mean_bps": 5.03
+      },
+      "n": 16723
+    },
+    "5": {
+      "1": {
+        "median_bps": 12.08,
+        "mean_bps": 24.01
+      },
+      "2": {
+        "median_bps": 4.92,
+        "mean_bps": 10.5
+      },
+      "3": {
+        "median_bps": 2.72,
+        "mean_bps": 6.2
+      },
+      "4": {
+        "median_bps": 1.61,
+        "mean_bps": 3.91
+      },
+      "5": {
+        "median_bps": 0.85,
+        "mean_bps": 2.4
+      },
+      "n": 1170204
+    }
+  },
+  "shortfall_size_quintiles": {
+    "1": {
+      "1": {
+        "median_bps": 45.77,
+        "mean_bps": 93.0
+      },
+      "2": {
+        "median_bps": 22.3,
+        "mean_bps": 47.84
+      },
+      "3": {
+        "median_bps": 12.73,
+        "mean_bps": 28.61
+      },
+      "4": {
+        "median_bps": 7.32,
+        "mean_bps": 17.22
+      },
+      "5": {
+        "median_bps": 3.43,
+        "mean_bps": 9.35
+      },
+      "n": 149941
+    },
+    "2": {
+      "1": {
+        "median_bps": 18.72,
+        "mean_bps": 25.45
+      },
+      "2": {
+        "median_bps": 9.0,
+        "mean_bps": 11.94
+      },
+      "3": {
+        "median_bps": 5.13,
+        "mean_bps": 7.11
+      },
+      "4": {
+        "median_bps": 2.97,
+        "mean_bps": 4.46
+      },
+      "5": {
+        "median_bps": 1.58,
+        "mean_bps": 2.71
+      },
+      "n": 239779
+    },
+    "3": {
+      "1": {
+        "median_bps": 13.08,
+        "mean_bps": 25.49
+      },
+      "2": {
+        "median_bps": 5.68,
+        "mean_bps": 9.59
+      },
+      "3": {
+        "median_bps": 3.21,
+        "mean_bps": 5.5
+      },
+      "4": {
+        "median_bps": 1.93,
+        "mean_bps": 3.52
+      },
+      "5": {
+        "median_bps": 1.13,
+        "mean_bps": 2.28
+      },
+      "n": 247701
+    },
+    "4": {
+      "1": {
+        "median_bps": 8.07,
+        "mean_bps": 13.76
+      },
+      "2": {
+        "median_bps": 3.06,
+        "mean_bps": 5.46
+      },
+      "3": {
+        "median_bps": 1.69,
+        "mean_bps": 3.22
+      },
+      "4": {
+        "median_bps": 1.03,
+        "mean_bps": 2.13
+      },
+      "5": {
+        "median_bps": 0.61,
+        "mean_bps": 1.43
+      },
+      "n": 248874
+    },
+    "5": {
+      "1": {
+        "median_bps": 4.47,
+        "mean_bps": 7.51
+      },
+      "2": {
+        "median_bps": 1.68,
+        "mean_bps": 2.88
+      },
+      "3": {
+        "median_bps": 0.92,
+        "mean_bps": 1.73
+      },
+      "4": {
+        "median_bps": 0.55,
+        "mean_bps": 1.17
+      },
+      "5": {
+        "median_bps": 0.29,
+        "mean_bps": 0.8
+      },
+      "n": 304952
+    }
+  },
+  "participation": {
+    "Q1": {
+      "n_orders": 1963,
+      "mean_bidders": 2.47,
+      "median_bidders": 2,
+      "share_solo": 0.4014,
+      "median_gap_bps": 77.49
+    },
+    "Q2": {
+      "n_orders": 3864,
+      "mean_bidders": 3.24,
+      "median_bidders": 3,
+      "share_solo": 0.2795,
+      "median_gap_bps": 25.65
+    },
+    "Q3": {
+      "n_orders": 10333,
+      "mean_bidders": 3.56,
+      "median_bidders": 3,
+      "share_solo": 0.3184,
+      "median_gap_bps": 15.81
+    },
+    "Q4": {
+      "n_orders": 44419,
+      "mean_bidders": 4.07,
+      "median_bidders": 3,
+      "share_solo": 0.303,
+      "median_gap_bps": 10.25
+    },
+    "Q5": {
+      "n_orders": 2544627,
+      "mean_bidders": 5.12,
+      "median_bidders": 4,
+      "share_solo": 0.3403,
+      "median_gap_bps": 2.04
+    }
+  },
+  "pivotal_top1_share": 0.4363,
+  "pivotal_top2_share": 0.8462,
+  "pivotal_top3_share": 0.9233,
+  "pivotal_total_loss_eth": 404938451043.8,
+  "wedge_share_winner_not_best": 0.0902,
+  "monthly": [
+    {
+      "month": "2025-05",
+      "n_orders": 46256,
+      "mean_bidders": 5.14,
+      "median_bidders": 4,
+      "median_gap_bps": 2.19
+    },
+    {
+      "month": "2025-06",
+      "n_orders": 158693,
+      "mean_bidders": 5.11,
+      "median_bidders": 4,
+      "median_gap_bps": 2.33
+    },
+    {
+      "month": "2025-07",
+      "n_orders": 205919,
+      "mean_bidders": 4.83,
+      "median_bidders": 4,
+      "median_gap_bps": 2.26
+    },
+    {
+      "month": "2025-08",
+      "n_orders": 244795,
+      "mean_bidders": 4.26,
+      "median_bidders": 3,
+      "median_gap_bps": 2.34
+    },
+    {
+      "month": "2025-09",
+      "n_orders": 207908,
+      "mean_bidders": 4.39,
+      "median_bidders": 3,
+      "median_gap_bps": 1.9
+    },
+    {
+      "month": "2025-10",
+      "n_orders": 255704,
+      "mean_bidders": 4.11,
+      "median_bidders": 2,
+      "median_gap_bps": 1.64
+    },
+    {
+      "month": "2025-11",
+      "n_orders": 233477,
+      "mean_bidders": 4.31,
+      "median_bidders": 3,
+      "median_gap_bps": 1.64
+    },
+    {
+      "month": "2025-12",
+      "n_orders": 137836,
+      "mean_bidders": 4.82,
+      "median_bidders": 4,
+      "median_gap_bps": 1.95
+    },
+    {
+      "month": "2026-01",
+      "n_orders": 134675,
+      "mean_bidders": 4.49,
+      "median_bidders": 4,
+      "median_gap_bps": 2.4
+    },
+    {
+      "month": "2026-02",
+      "n_orders": 144413,
+      "mean_bidders": 4.01,
+      "median_bidders": 3,
+      "median_gap_bps": 3.52
+    },
+    {
+      "month": "2026-03",
+      "n_orders": 118483,
+      "mean_bidders": 4.67,
+      "median_bidders": 4,
+      "median_gap_bps": 2.98
+    },
+    {
+      "month": "2026-04",
+      "n_orders": 99802,
+      "mean_bidders": 5.13,
+      "median_bidders": 4,
+      "median_gap_bps": 2.99
+    },
+    {
+      "month": "2026-05",
+      "n_orders": 99885,
+      "mean_bidders": 6.23,
+      "median_bidders": 6,
+      "median_gap_bps": 2.21
+    },
+    {
+      "month": "2026-06",
+      "n_orders": 129736,
+      "mean_bidders": 6.09,
+      "median_bidders": 6,
+      "median_gap_bps": 2.57
+    },
+    {
+      "month": "2026-07",
+      "n_orders": 123223,
+      "mean_bidders": 7.19,
+      "median_bidders": 7,
+      "median_gap_bps": 1.49
+    },
+    {
+      "month": "2026-08",
+      "n_orders": 115880,
+      "mean_bidders": 6.89,
+      "median_bidders": 6,
+      "median_gap_bps": 1.55
+    },
+    {
+      "month": "2026-09",
+      "n_orders": 148531,
+      "mean_bidders": 8.07,
+      "median_bidders": 8,
+      "median_gap_bps": 1.81
+    }
+  ]
+}

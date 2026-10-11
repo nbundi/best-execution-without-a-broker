@@ -1,0 +1,13 @@
+{
+  "n_auctions": 565259,
+  "share_auctions_with_filtered_solution": 0.3548,
+  "mean_solutions": 8.27,
+  "median_filtered_solutions_when_present": 2.0,
+  "median_best_filtered_score": 25816351082565132,
+  "median_best_fair_score": 3683087647779709,
+  "median_realised_sum_winner_score": 3908465487004991,
+  "n_order_level_selection_wedges": 57775,
+  "share_order_wedges_positive": 0.0834,
+  "median_wedge_bps_when_positive": 1.71,
+  "interpretation": "Scores are not summed into a counterfactual allocation. The filtered/fair maxima are submitted-solution diagnostics and only bound an allocation analysis."
+}

@@ -34,3 +34,5 @@ reviews/*
 # Markdown files in root (keep README.md; subfolder .md files are tracked)
 /*.md
 !/README.md
+# Working logs/watchdog scripts
+logs/

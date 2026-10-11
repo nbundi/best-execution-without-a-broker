@@ -1,0 +1,35 @@
+{
+  "n_orders": 2605216,
+  "n_multi": 1720640,
+  "value_concentration": {
+    "top_1pct": 1.0,
+    "top_5pct": 1.0,
+    "top_10pct": 1.0,
+    "top_25pct": 1.0
+  },
+  "monopolization": {
+    "assets_ge20": 2106,
+    "median_top_solver_share": 0.325,
+    "monopolized_assets": 84,
+    "monopolized_order_share": 0.0215,
+    "monopolized_value_share": 0.0
+  },
+  "margin_by_n": {
+    "2": 5.27,
+    "3": 4.77,
+    "4": 3.87,
+    "5": 3.09,
+    "6": 2.55,
+    "7": 2.18,
+    "8": 1.84,
+    "9": 1.61,
+    "10": 1.44,
+    "11": 1.3,
+    "12+": 1.02
+  },
+  "wedge": {
+    "share": 0.0902,
+    "median_bps": 1.79,
+    "p99_bps": 375.2
+  }
+}

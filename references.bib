@@ -1,211 +1,366 @@
-% References for "Best Execution Without a Broker".
+% References for "The Value of the Marginal Solver".
 % Verification status is logged in reviews/CITATION_AUDIT.md.
 % Cite-key scheme: firstauthorYYYYkeyword.
 
-% ---------------------------------------------------------------------------
-% On-chain execution quality: AMM baselines
-% ---------------------------------------------------------------------------
-
-@misc{angeris2019uniswap,
-  author       = {Angeris, Guillermo and Kao, Hsien-Tang and Chiang, Rei and Noyes, Charlie and Chitra, Tarun},
-  title        = {An Analysis of {Uniswap} Markets},
-  year         = {2019},
-  eprint       = {1911.03380},
-  archivePrefix= {arXiv},
-  primaryClass = {q-fin.TR},
-  note         = {arXiv:1911.03380},
-  url          = {https://arxiv.org/abs/1911.03380}
+@article{mcafee1987entry,
+  author       = {McAfee, R. Preston and McMillan, John},
+  title        = {Auctions with Entry},
+  journal      = {Economics Letters},
+  volume       = {23},
+  number       = {4},
+  pages        = {343--347},
+  year         = {1987},
+  doi          = {10.1016/0165-1765(87)90142-X},
+  url          = {https://doi.org/10.1016/0165-1765(87)90142-X}
 }
 
-@inproceedings{angeris2020oracles,
-  author       = {Angeris, Guillermo and Chitra, Tarun},
-  title        = {Improved Price Oracles: Constant Function Market Makers},
-  booktitle    = {Proceedings of the 2nd ACM Conference on Advances in Financial Technologies (AFT '20)},
-  pages        = {80--91},
+@article{levin1994entry,
+  author       = {Levin, Dan and Smith, James L.},
+  title        = {Equilibrium in Auctions with Entry},
+  journal      = {The American Economic Review},
+  volume       = {84},
+  number       = {3},
+  pages        = {585--599},
+  year         = {1994},
+  url          = {https://www.jstor.org/stable/2118069}
+}
+
+@article{li2009entry,
+  author       = {Li, Tong and Zheng, Xiaoyong},
+  title        = {Entry and Competition Effects in First-Price Auctions: Theory and Evidence from Procurement Auctions},
+  journal      = {The Review of Economic Studies},
+  volume       = {76},
+  number       = {4},
+  pages        = {1397--1429},
+  year         = {2009},
+  doi          = {10.1111/j.1467-937X.2009.00558.x},
+  url          = {https://doi.org/10.1111/j.1467-937X.2009.00558.x}
+}
+
+@article{athey2011open,
+  author       = {Athey, Susan and Levin, Jonathan and Seira, Enrique},
+  title        = {Comparing Open and Sealed Bid Auctions: Evidence from Timber Auctions},
+  journal      = {The Quarterly Journal of Economics},
+  volume       = {126},
+  number       = {1},
+  pages        = {207--257},
+  year         = {2011},
+  doi          = {10.1093/qje/qjq001},
+  url          = {https://doi.org/10.1093/qje/qjq001}
+}
+
+@book{david2003order,
+  author       = {David, Herbert A. and Nagaraja, Haikady N.},
+  title        = {Order Statistics},
+  edition      = {3rd},
+  publisher    = {Wiley},
+  year         = {2003},
+  doi          = {10.1002/0471722162},
+  url          = {https://doi.org/10.1002/0471722162}
+}
+
+@article{riggs2020swap,
+  author       = {Riggs, Lynn and Onur, Esen and Reiffen, David and Zhu, Haoxiang},
+  title        = {Swap Trading after {Dodd–Frank}: Evidence from Index {CDS}},
+  journal      = {Journal of Financial Economics},
+  volume       = {137},
+  number       = {3},
+  pages        = {857--886},
   year         = {2020},
-  doi          = {10.1145/3419614.3423251},
-  url          = {https://dl.acm.org/doi/10.1145/3419614.3423251}
+  doi          = {10.1016/j.jfineco.2020.03.008},
+  url          = {https://doi.org/10.1016/j.jfineco.2020.03.008}
 }
 
-@article{alexander2025price,
-  author       = {Alexander, Carol and Chen, Xi and Deng, Jun and Fu, Qi},
-  title        = {Price Discovery and Efficiency in {Uniswap} Liquidity Pools},
-  journal      = {Journal of Futures Markets},
-  volume       = {45},
-  number       = {8},
-  pages        = {1023--1048},
+@article{pratt1979price,
+  author       = {Pratt, John W. and Wise, David A. and Zeckhauser, Richard},
+  title        = {Price Differences in Almost Competitive Markets},
+  journal      = {The Quarterly Journal of Economics},
+  volume       = {93},
+  number       = {2},
+  pages        = {189--211},
+  year         = {1979},
+  doi          = {10.2307/1883191},
+  url          = {https://doi.org/10.2307/1883191}
+}
+
+@article{baye2004price,
+  author       = {Baye, Michael R. and Morgan, John and Scholten, Patrick},
+  title        = {Price Dispersion in the Small and in the Large: Evidence from an Internet Price Comparison Site},
+  journal      = {The Journal of Industrial Economics},
+  volume       = {52},
+  number       = {4},
+  pages        = {463--496},
+  year         = {2004},
+  doi          = {10.1111/j.0022-1821.2004.00236.x},
+  url          = {https://doi.org/10.1111/j.0022-1821.2004.00236.x}
+}
+
+@misc{yang2024builder,
+  author       = {Yang, Sen and Nayak, Kartik and Zhang, Fan},
+  title        = {Decentralization of {Ethereum}'s Builder Market},
+  year         = {2024},
+  eprint       = {2405.01329},
+  archivePrefix= {arXiv},
+  note         = {arXiv:2405.01329},
+  url          = {https://arxiv.org/abs/2405.01329}
+}
+
+@misc{pahari2025exclusive,
+  author       = {Pahari, Amritash and Canidio, Andrea},
+  title        = {How Exclusive are {Ethereum} Transactions? {Evidence} from Non-Winning Blocks},
   year         = {2025},
-  doi          = {10.1002/fut.22593},
-  url          = {https://onlinelibrary.wiley.com/doi/10.1002/fut.22593}
+  eprint       = {2509.16052},
+  archivePrefix= {arXiv},
+  note         = {arXiv:2509.16052},
+  url          = {https://arxiv.org/abs/2509.16052}
 }
 
-% ---------------------------------------------------------------------------
-% Intent venues: direct execution-quality measurement
-% ---------------------------------------------------------------------------
-
-@misc{bachu2024quantifying,
-  author       = {Bachu, Brad and Wan, Xin and Moallemi, Ciamac C.},
-  title        = {Quantifying Price Improvement in Order Flow Auctions},
+@misc{bahrani2024pbs,
+  author       = {Bahrani, Maryam and Garimidi, Pranav and Roughgarden, Tim},
+  title        = {Centralization in Block Building and Proposer-Builder Separation},
   year         = {2024},
-  eprint       = {2405.00537},
+  eprint       = {2401.12120},
   archivePrefix= {arXiv},
-  primaryClass = {q-fin.TR},
-  note         = {arXiv:2405.00537; Uniswap Labs working paper},
-  url          = {https://arxiv.org/abs/2405.00537}
+  note         = {arXiv:2401.12120; Financial Cryptography 2024},
+  url          = {https://arxiv.org/abs/2401.12120}
 }
 
-@misc{yuminaga2025welfare,
-  author       = {Yuminaga, Yuki and Chen, Dex and Sui, Danning},
-  title        = {Execution Welfare Across Solver-based {DEXes}},
-  year         = {2025},
-  eprint       = {2503.00738},
+@misc{gupta2023centralizing,
+  author       = {Gupta, Tivas and Pai, Mallesh M. and Resnick, Max},
+  title        = {The Centralizing Effects of Private Order Flow on Proposer-Builder Separation},
+  year         = {2023},
+  eprint       = {2305.19150},
   archivePrefix= {arXiv},
-  primaryClass = {q-fin.TR},
-  note         = {arXiv:2503.00738},
-  url          = {https://arxiv.org/abs/2503.00738}
+  note         = {arXiv:2305.19150; AFT 2023},
+  url          = {https://arxiv.org/abs/2305.19150}
 }
 
 % ---------------------------------------------------------------------------
-% Solver competition, auction design, and market structure
+% Entry, positions, and market-making roles (verified 2026-09-05)
 % ---------------------------------------------------------------------------
 
-@misc{chitra2024intent,
-  author       = {Chitra, Tarun and Kulkarni, Kshitij and Pai, Mallesh and Diamandis, Theo},
-  title        = {An Analysis of Intent-Based Markets},
-  year         = {2024},
-  eprint       = {2403.02525},
-  archivePrefix= {arXiv},
-  primaryClass = {cs.GT},
-  note         = {arXiv:2403.02525},
-  url          = {https://arxiv.org/abs/2403.02525}
+@article{du2017frequency,
+  author = {Du, Songzi and Zhu, Haoxiang},
+  title = {What is the Optimal Trading Frequency in Financial Markets?},
+  journal = {The Review of Economic Studies}, volume = {84}, number = {4},
+  pages = {1606--1651}, year = {2017}, doi = {10.1093/restud/rdx006},
+  url = {https://doi.org/10.1093/restud/rdx006}
 }
 
-@misc{canidio2024fair,
-  author       = {Canidio, Andrea and Henneke, Felix},
-  title        = {Fair Combinatorial Auctions: Endogenous Best Execution in Blockchain Trade-Intent Markets},
-  year         = {2024},
-  eprint       = {2408.12225},
-  archivePrefix= {arXiv},
-  primaryClass = {econ.TH},
-  note         = {arXiv:2408.12225},
-  url          = {https://arxiv.org/abs/2408.12225}
+@article{garbade1979clearing,
+  author = {Garbade, Kenneth D. and Silber, William L.},
+  title = {Structural Organization of Secondary Markets: Clearing Frequency, Dealer Activity and Liquidity Risk},
+  journal = {The Journal of Finance}, volume = {34}, number = {3},
+  pages = {577--593}, year = {1979}, doi = {10.1111/j.1540-6261.1979.tb02126.x},
+  url = {https://doi.org/10.1111/j.1540-6261.1979.tb02126.x}
 }
 
-@misc{zhang2026incentives,
-  author       = {Zhang, Ruiyang},
-  title        = {Incentives and Market Structure in Intent-Based Exchanges: Evidence from a Solver-Reward Reform},
-  year         = {2026},
-  eprint       = {2607.21955},
-  archivePrefix= {arXiv},
-  primaryClass = {q-fin.TR},
-  note         = {arXiv:2607.21955; analyses CoW Protocol CIP-74 (effective 8 December 2025)},
-  url          = {https://arxiv.org/abs/2607.21955}
+@article{madhavan1992trading,
+  author = {Madhavan, Ananth},
+  title = {Trading Mechanisms in Securities Markets},
+  journal = {The Journal of Finance}, volume = {47}, number = {2},
+  pages = {607--641}, year = {1992}, doi = {10.2307/2329117},
+  url = {https://doi.org/10.2307/2329117}
+}
+
+@article{pagano2003closing,
+  author = {Pagano, Michael S. and Schwartz, Robert A.},
+  title = {A Closing Call's Impact on Market Quality at {Euronext} {Paris}},
+  journal = {Journal of Financial Economics}, volume = {68}, number = {3},
+  pages = {439--484}, year = {2003}, doi = {10.1016/S0304-405X(03)00073-4},
+  url = {https://doi.org/10.1016/S0304-405X(03)00073-4}
 }
 
 @misc{augusto2026liquidity,
-  author       = {Augusto, Andr\'e and {Ferreira Torres}, Christof and Vasconcelos, Andr\'e and Correia, Miguel},
-  title        = {Exploiting Liquidity Exhaustion Attacks in Intent-Based Cross-Chain Bridges},
-  year         = {2026},
-  eprint       = {2602.17805},
-  archivePrefix= {arXiv},
-  primaryClass = {cs.CR},
-  note         = {arXiv:2602.17805},
-  url          = {https://arxiv.org/abs/2602.17805}
+  author = {Augusto, Andr\'e and {Ferreira Torres}, Christof and Vasconcelos, Andr\'e and Correia, Miguel},
+  title = {Exploiting Liquidity Exhaustion Attacks in Intent-Based Cross-Chain Bridges},
+  year = {2026}, eprint = {2602.17805}, archivePrefix = {arXiv},
+  primaryClass = {cs.CR}, note = {arXiv:2602.17805},
+  url = {https://arxiv.org/abs/2602.17805}
 }
 
 % ---------------------------------------------------------------------------
-% Protocol whitepaper and documentation (non-archival)
+% Traditional market microstructure (fields verified against Crossref 2026-08-31)
 % ---------------------------------------------------------------------------
 
-@misc{adams2023uniswapx,
-  author       = {Adams, Hayden and Zinsmeister, Noah and Toda, Mark and Williams, Emily and Wan, Xin},
-  title        = {{UniswapX}: A Non-custodial Dutch Auction Trading Protocol},
-  year         = {2023},
-  howpublished = {Uniswap Labs technical whitepaper},
-  note         = {Non-archival; whitepaper},
-  url          = {https://uniswap.org/whitepaper-uniswapx.pdf}
+@article{demsetz1968cost,
+  author       = {Demsetz, Harold},
+  title        = {The Cost of Transacting},
+  journal      = {The Quarterly Journal of Economics},
+  volume       = {82},
+  number       = {1},
+  pages        = {33--53},
+  year         = {1968},
+  doi          = {10.2307/1882244},
+  url          = {https://doi.org/10.2307/1882244}
 }
 
-@misc{cowdao_rules,
-  author       = {{CoW DAO}},
-  title        = {Solver Competition Rules},
-  year         = {2026},
-  howpublished = {CoW Protocol Documentation},
-  note         = {Non-archival; protocol documentation},
-  url          = {https://docs.cow.fi/}
+@article{ho1983dynamics,
+  author       = {Ho, Thomas S. Y. and Stoll, Hans R.},
+  title        = {The Dynamics of Dealer Markets Under Competition},
+  journal      = {The Journal of Finance},
+  volume       = {38},
+  number       = {4},
+  pages        = {1053--1074},
+  year         = {1983},
+  doi          = {10.1111/j.1540-6261.1983.tb02282.x},
+  url          = {https://doi.org/10.1111/j.1540-6261.1983.tb02282.x}
 }
 
-@misc{cowdao_rewards,
-  author       = {{CoW DAO}},
-  title        = {Solver Rewards},
-  year         = {2026},
-  howpublished = {CoW Protocol Documentation},
-  note         = {Non-archival; protocol documentation},
-  url          = {https://docs.cow.fi/}
+@article{christie1994nasdaq,
+  author       = {Christie, William G. and Schultz, Paul H.},
+  title        = {Why do {NASDAQ} Market Makers Avoid Odd-Eighth Quotes?},
+  journal      = {The Journal of Finance},
+  volume       = {49},
+  number       = {5},
+  pages        = {1813--1840},
+  year         = {1994},
+  doi          = {10.2307/2329272},
+  url          = {https://doi.org/10.2307/2329272}
 }
 
-@misc{cowdao_fairauction,
-  author       = {{CoW DAO}},
-  title        = {Fair Combinatorial Batch Auction},
-  year         = {2026},
-  howpublished = {CoW Protocol Documentation},
-  note         = {Non-archival; protocol documentation},
-  url          = {https://docs.cow.fi/}
+@article{grossman1988liquidity,
+  author       = {Grossman, Sanford J. and Miller, Merton H.},
+  title        = {Liquidity and Market Structure},
+  journal      = {The Journal of Finance},
+  volume       = {43},
+  number       = {3},
+  pages        = {617--633},
+  year         = {1988},
+  doi          = {10.1111/j.1540-6261.1988.tb04594.x},
+  url          = {https://doi.org/10.1111/j.1540-6261.1988.tb04594.x}
 }
 
-@misc{cow_api,
-  author       = {{CoW Protocol}},
-  title        = {Orderbook {API} Reference},
-  year         = {2026},
-  howpublished = {CoW Protocol Documentation},
-  note         = {Non-archival; protocol documentation},
-  url          = {https://docs.cow.fi/cow-protocol/reference/apis/orderbook}
+@article{biais2000competing,
+  author       = {Biais, Bruno and Martimort, David and Rochet, Jean-Charles},
+  title        = {Competing Mechanisms in a Common Value Environment},
+  journal      = {Econometrica},
+  volume       = {68},
+  number       = {4},
+  pages        = {799--837},
+  year         = {2000},
+  doi          = {10.1111/1468-0262.00138},
+  url          = {https://doi.org/10.1111/1468-0262.00138}
+}
+
+@article{duffie2010capital,
+  author       = {Duffie, Darrell},
+  title        = {Presidential Address: Asset Price Dynamics with Slow-Moving Capital},
+  journal      = {The Journal of Finance},
+  volume       = {65},
+  number       = {4},
+  pages        = {1237--1267},
+  year         = {2010},
+  doi          = {10.1111/j.1540-6261.2010.01569.x},
+  url          = {https://doi.org/10.1111/j.1540-6261.2010.01569.x}
+}
+
+@article{stigler1961information,
+  author       = {Stigler, George J.},
+  title        = {The Economics of Information},
+  journal      = {Journal of Political Economy},
+  volume       = {69},
+  number       = {3},
+  pages        = {213--225},
+  year         = {1961},
+  doi          = {10.1086/258464},
+  url          = {https://doi.org/10.1086/258464}
+}
+
+@article{burdett1983dispersion,
+  author       = {Burdett, Kenneth and Judd, Kenneth L.},
+  title        = {Equilibrium Price Dispersion},
+  journal      = {Econometrica},
+  volume       = {51},
+  number       = {4},
+  pages        = {955--969},
+  year         = {1983},
+  doi          = {10.2307/1912045},
+  url          = {https://doi.org/10.2307/1912045}
+}
+
+@article{hendershott2015click,
+  author       = {Hendershott, Terrence and Madhavan, Ananth},
+  title        = {Click or Call? Auction versus Search in the Over-the-Counter Market},
+  journal      = {The Journal of Finance},
+  volume       = {70},
+  number       = {1},
+  pages        = {419--447},
+  year         = {2015},
+  doi          = {10.1111/jofi.12164},
+  url          = {https://doi.org/10.1111/jofi.12164}
 }
 
 % ---------------------------------------------------------------------------
-% Legal instruments
+% Batch auctions vs continuous trading
 % ---------------------------------------------------------------------------
 
-@misc{mifid2,
-  author       = {{European Parliament and Council}},
-  title        = {Directive 2014/65/EU on Markets in Financial Instruments ({MiFID II}), Article 27},
-  year         = {2014},
-  howpublished = {Official Journal of the European Union, L 173/349},
-  note         = {Best execution obligation},
-  url          = {https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014L0065}
-}
-
-@misc{finsa,
-  author       = {{Swiss Confederation}},
-  title        = {Federal Act on Financial Services ({FinSA} / {FIDLEG}), Article 18, and Financial Services Ordinance ({FinSO})},
-  year         = {2018},
-  howpublished = {SR 950.1},
-  note         = {Best execution obligation; exact article wording to be confirmed against current statutory text (see CITATION\_AUDIT.md)},
-  url          = {https://www.fedlex.admin.ch/eli/cc/2019/758/en}
-}
-
-@misc{finra5310,
-  author       = {{Financial Industry Regulatory Authority}},
-  title        = {{FINRA} Rule 5310: Best Execution and Interpositioning},
-  year         = {2014},
-  howpublished = {FINRA Manual},
-  note         = {US broker best-execution rule},
-  url          = {https://www.finra.org/rules-guidance/rulebooks/finra-rules/5310}
-}
-
-@misc{dtcc_t1,
-  author       = {{Depository Trust and Clearing Corporation}},
-  title        = {{DTCC} Comments on the Industry's {T+1} Progress},
-  year         = {2024},
-  howpublished = {DTCC},
-  note         = {Non-archival: US equities moved to {T+1} settlement on 28 May 2024; Continuous Net Settlement fail rate averaged $\approx$2.1\% (July 2024). Pin/verify before submission.},
-  url          = {https://www.dtcc.com/news/2024/may/30/dtcc-comments-on-industrys-t1-progress}
+@article{aquilina2022quantifying,
+  author       = {Aquilina, Matteo and Budish, Eric and O'Neill, Peter},
+  title        = {Quantifying the High-Frequency Trading ``Arms Race''},
+  journal      = {The Quarterly Journal of Economics},
+  volume       = {137},
+  number       = {1},
+  pages        = {493--564},
+  year         = {2022},
+  doi          = {10.1093/qje/qjab032},
+  url          = {https://doi.org/10.1093/qje/qjab032}
 }
 
 % ---------------------------------------------------------------------------
-% Peer-reviewed market design, DEX microstructure, and best execution
-% (bibliographic fields verified against Crossref; see CITATION_AUDIT.md)
+% Empirical auctions with bid data
 % ---------------------------------------------------------------------------
+
+@article{hortacsu2010mechanism,
+  author       = {Horta\c{c}su, Ali and McAdams, David},
+  title        = {Mechanism Choice and Strategic Bidding in Divisible Good Auctions: An Empirical Analysis of the {Turkish} Treasury Auction Market},
+  journal      = {Journal of Political Economy},
+  volume       = {118},
+  number       = {5},
+  pages        = {833--865},
+  year         = {2010},
+  doi          = {10.1086/657948},
+  url          = {https://doi.org/10.1086/657948}
+}
+
+@article{kastl2011discrete,
+  author       = {Kastl, Jakub},
+  title        = {Discrete Bids and Empirical Inference in Divisible Good Auctions},
+  journal      = {The Review of Economic Studies},
+  volume       = {78},
+  number       = {3},
+  pages        = {974--1014},
+  year         = {2011},
+  doi          = {10.1093/restud/rdq024},
+  url          = {https://doi.org/10.1093/restud/rdq024}
+}
+
+% ---------------------------------------------------------------------------
+% Auction theory
+% ---------------------------------------------------------------------------
+
+@article{vickrey1961counterspeculation,
+  author       = {Vickrey, William},
+  title        = {Counterspeculation, Auctions, and Competitive Sealed Tenders},
+  journal      = {The Journal of Finance},
+  volume       = {16},
+  number       = {1},
+  pages        = {8--37},
+  year         = {1961},
+  doi          = {10.1111/j.1540-6261.1961.tb02789.x},
+  url          = {https://doi.org/10.1111/j.1540-6261.1961.tb02789.x}
+}
+
+@article{bulow1996auctions,
+  author       = {Bulow, Jeremy and Klemperer, Paul},
+  title        = {Auctions Versus Negotiations},
+  journal      = {The American Economic Review},
+  volume       = {86},
+  number       = {1},
+  pages        = {180--194},
+  year         = {1996},
+  url          = {https://www.jstor.org/stable/2118262}
+}
 
 @article{budish2015hft,
   author       = {Budish, Eric and Cramton, Peter and Shim, John},
@@ -229,111 +384,175 @@
   url          = {https://doi.org/10.1109/SP40000.2020.00040}
 }
 
-@article{park2023flaws,
-  author       = {Park, Andreas},
-  title        = {The Conceptual Flaws of Decentralized Automated Market Making},
-  journal      = {Management Science},
-  volume       = {69},
-  number        = {11},
-  pages        = {6731--6751},
-  year         = {2023},
-  doi          = {10.1287/mnsc.2021.02802},
-  url          = {https://doi.org/10.1287/mnsc.2021.02802}
-}
-
-@article{lehar2025dex,
-  author       = {Lehar, Alfred and Parlour, Christine A.},
-  title        = {Decentralized Exchange: The {Uniswap} Automated Market Maker},
-  journal      = {The Journal of Finance},
-  volume       = {80},
-  number       = {1},
-  pages        = {321--374},
-  year         = {2025},
-  doi          = {10.1111/jofi.13405},
-  url          = {https://doi.org/10.1111/jofi.13405}
-}
-
-@article{barbon2026quality,
-  author       = {Barbon, Andrea and Ranaldo, Angelo},
-  title        = {On the Quality of Cryptocurrency Markets: Centralized vs. Decentralized Exchanges},
-  journal      = {Management Science},
-  year         = {2026},
-  note         = {Advance online publication},
-  doi          = {10.1287/mnsc.2024.07703},
-  url          = {https://doi.org/10.1287/mnsc.2024.07703}
-}
-
-@article{hasbrouck2026fees,
-  author       = {Hasbrouck, Joel and Rivera, Thomas J. and Saleh, Fahad},
-  title        = {The Need for Fees at a {DEX}: How Increases in Fees Can Increase {DEX} Trading Volume},
-  journal      = {Management Science},
-  year         = {2026},
-  note         = {Advance online publication},
-  doi          = {10.1287/mnsc.2023.00726},
-  url          = {https://doi.org/10.1287/mnsc.2023.00726}
-}
-
-@article{battalio2016brokers,
-  author       = {Battalio, Robert and Corwin, Shane A. and Jennings, Robert},
-  title        = {Can Brokers Have It All? On the Relation between Make-Take Fees and Limit Order Execution Quality},
-  journal      = {The Journal of Finance},
-  volume       = {71},
-  number       = {5},
-  pages        = {2193--2238},
-  year         = {2016},
-  doi          = {10.1111/jofi.12422},
-  url          = {https://doi.org/10.1111/jofi.12422}
-}
-
-@article{ernst2026pfof,
-  author       = {Ernst, Thomas and Spatt, Chester S.},
-  title        = {Payment for Order Flow and Option Internalization},
-  journal      = {The Review of Financial Studies},
-  year         = {2026},
-  note         = {Advance online publication},
-  doi          = {10.1093/rfs/hhaf108},
-  url          = {https://doi.org/10.1093/rfs/hhaf108}
-}
-
-@article{schwarz2025actual,
-  author       = {Schwarz, Christopher and Barber, Brad M. and Huang, Xing and Jorion, Philippe and Odean, Terrance},
-  title        = {The ``Actual Retail Price'' of Equity Trades},
-  journal      = {The Journal of Finance},
-  volume       = {80},
-  number       = {5},
-  pages        = {2507--2541},
-  year         = {2025},
-  doi          = {10.1111/jofi.13467},
-  url          = {https://doi.org/10.1111/jofi.13467}
-}
-
 % ---------------------------------------------------------------------------
-% Market-data sources for motivation (non-archival; pin/verify before submission)
+% Intent venues: measurement and market structure
 % ---------------------------------------------------------------------------
 
-@misc{uniswap3t,
-  author       = {{Cointelegraph}},
-  title        = {Uniswap becomes first {DEX} to hit \$3T in all-time volume},
+@misc{bachu2024quantifying,
+  author       = {Bachu, Brad and Wan, Xin and Moallemi, Ciamac C.},
+  title        = {Quantifying Price Improvement in Order Flow Auctions},
   year         = {2024},
-  howpublished = {Cointelegraph},
-  note         = {Non-archival market data: \$3\,trillion cumulative Uniswap volume, $\approx$23\% DEX market share (May 2024). Pin/verify URL before submission.},
-  url          = {https://cointelegraph.com/news/uniswap-first-dex-hit-3-trillion-all-time-volume}
+  eprint       = {2405.00537},
+  archivePrefix= {arXiv},
+  primaryClass = {q-fin.TR},
+  note         = {arXiv:2405.00537},
+  url          = {https://arxiv.org/abs/2405.00537}
 }
+
+@misc{yuminaga2025welfare,
+  author       = {Yuminaga, Yuki and Chen, Dex and Sui, Danning},
+  title        = {Execution Welfare Across Solver-based {DEXes}},
+  year         = {2025},
+  eprint       = {2503.00738},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.CE},
+  note         = {arXiv:2503.00738},
+  url          = {https://arxiv.org/abs/2503.00738}
+}
+
+@misc{watts2025failure,
+  author       = {Watts, Alex and Sinesi, Davide and Greene, Jacob},
+  title        = {Using ``Failure Costs'' to Guarantee Execution Quality in Competitive and Permissionless Order Flow Auctions},
+  year         = {2025},
+  eprint       = {2503.05338},
+  archivePrefix= {arXiv},
+  primaryClass = {econ.GN},
+  note         = {arXiv:2503.05338},
+  url          = {https://arxiv.org/abs/2503.05338}
+}
+
+@misc{chitra2024intent,
+  author       = {Chitra, Tarun and Kulkarni, Kshitij and Pai, Mallesh and Diamandis, Theo},
+  title        = {An Analysis of Intent-Based Markets},
+  year         = {2024},
+  eprint       = {2403.02525},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.GT},
+  note         = {arXiv:2403.02525},
+  url          = {https://arxiv.org/abs/2403.02525}
+}
+
+@misc{canidio2024fair,
+  author       = {Canidio, Andrea and Henneke, Felix},
+  title        = {Fair Combinatorial Auctions: Endogenous Best Execution in Blockchain Trade-Intent Markets},
+  year         = {2024},
+  eprint       = {2408.12225},
+  archivePrefix= {arXiv},
+  primaryClass = {econ.TH},
+  note         = {arXiv:2408.12225},
+  url          = {https://arxiv.org/abs/2408.12225}
+}
+
+@inproceedings{zhang2026incentives,
+  author       = {Zhang, Ruiyang},
+  title        = {Incentives and Market Structure in Intent-Based Exchanges: Evidence from a Solver-Reward Reform},
+  booktitle    = {Proceedings of the International Workshop on Cryptocurrencies and Blockchain Technology (CBT), co-located with ESORICS},
+  year         = {2026},
+  eprint       = {2607.21955},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.CR},
+  note         = {CBT 2026; arXiv:2607.21955; analyses CoW Protocol CIP-74 (effective 8 December 2025)},
+  url          = {https://arxiv.org/abs/2607.21955}
+}
+
+% ---------------------------------------------------------------------------
+% Protocol whitepaper and documentation (non-archival)
+% ---------------------------------------------------------------------------
+
+@misc{adams2023uniswapx,
+  author       = {Adams, Hayden and Zinsmeister, Noah and Toda, Mark and Williams, Emily and Wan, Xin},
+  title        = {{UniswapX}: A Non-custodial Dutch Auction Trading Protocol},
+  year         = {2023},
+  howpublished = {Uniswap Labs technical whitepaper},
+  note         = {Non-archival; whitepaper},
+  url          = {https://uniswap.org/whitepaper-uniswapx.pdf}
+}
+
+@misc{cowdao_rules,
+  author       = {{CoW DAO}},
+  title        = {Solver Competition Rules},
+  year         = {2026},
+  howpublished = {CoW Protocol Documentation},
+  note         = {Non-archival; protocol documentation},
+  url          = {https://docs.cow.fi/cow-protocol/reference/core/auctions/competition-rules}
+}
+
+@misc{cowdao_rewards,
+  author       = {{CoW DAO}},
+  title        = {Solver Rewards},
+  year         = {2026},
+  howpublished = {CoW Protocol Documentation},
+  note         = {Non-archival; protocol documentation},
+  url          = {https://docs.cow.fi/cow-protocol/reference/core/auctions/rewards}
+}
+
+@misc{cowdao_fairauction,
+  author       = {{CoW DAO}},
+  title        = {Fair Combinatorial Auction},
+  year         = {2026},
+  howpublished = {CoW Protocol Documentation},
+  note         = {Non-archival; protocol documentation},
+  url          = {https://docs.cow.fi/cow-protocol/reference/core/auctions}
+}
+
+@misc{cow_api,
+  author       = {{CoW Protocol}},
+  title        = {Orderbook {API} Reference},
+  year         = {2026},
+  howpublished = {CoW Protocol Documentation},
+  note         = {Non-archival; protocol documentation},
+  url          = {https://docs.cow.fi/cow-protocol/reference/apis/orderbook}
+}
+
+% ---------------------------------------------------------------------------
+% Regulation
+% ---------------------------------------------------------------------------
+
+@misc{mifid2,
+  author       = {{European Parliament and Council}},
+  title        = {Directive 2014/65/EU on Markets in Financial Instruments ({MiFID II}), Article 27},
+  year         = {2014},
+  howpublished = {Official Journal of the European Union, L 173/349},
+  note         = {Best execution obligation},
+  url          = {https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014L0065}
+}
+
+@misc{finsa,
+  author       = {{Swiss Confederation}},
+  title        = {Federal Act on Financial Services ({FinSA} / {FIDLEG}), Article 18},
+  year         = {2018},
+  howpublished = {SR 950.1},
+  note         = {Best execution obligation. Art.~18: best possible outcome in terms of cost, timing and quality; wording confirmed against the consolidated English text of 1 March 2024},
+  url          = {https://www.fedlex.admin.ch/eli/cc/2019/758/en}
+}
+
+@misc{finra5310,
+  author       = {{Financial Industry Regulatory Authority}},
+  title        = {{FINRA} Rule 5310: Best Execution and Interpositioning},
+  year         = {2014},
+  howpublished = {FINRA Manual},
+  note         = {US broker best-execution rule},
+  url          = {https://www.finra.org/rules-guidance/rulebooks/finra-rules/5310}
+}
+
+@misc{le2026fairness,
+  author       = {Le, Tuongvy},
+  title        = {Fairness by Design: Verifiable Execution in On-Chain Markets},
+  year         = {2026},
+  howpublished = {Stanford Journal of Blockchain Law \& Policy},
+  note         = {January 2026},
+  url          = {https://stanford-jblp.pubpub.org/pub/fairness-by-design}
+}
+
+% ---------------------------------------------------------------------------
+% Market-data sources for motivation (non-archival)
+% ---------------------------------------------------------------------------
 
 @misc{cowdao_review2025,
   author       = {{CoW DAO}},
   title        = {CoW {DAO}: 2025 in Review},
   year         = {2026},
   howpublished = {CoW DAO},
-  note         = {Non-archival: 2025 protocol volume $\approx$\$87B (2024: \$40.2B); reports $>$90\% reduction in sandwich/front-running vs.\ AMM swaps. Pin/verify before submission.},
+  note         = {Non-archival: 2025 protocol volume \$87B (2024: \$40.2B); venue self-reported. Figures verified 2026-08-31},
   url          = {https://cow.fi/learn/cow-dao-2025-in-review}
-}
-
-@misc{delphi2025defi,
-  author       = {{Delphi Digital}},
-  title        = {2025 {DeFi} Outlook},
-  year         = {2025},
-  howpublished = {Delphi Digital research (summary via ChainCatcher)},
-  note         = {Non-archival: projects spot DEX volume rising toward 20--22\% of centralized-exchange spot volume and a growing share for solver-based execution. Pin/verify before submission.},
-  url          = {https://www.chaincatcher.com/en/article/2159450}
 }

@@ -1,0 +1,27 @@
+{
+  "n_sell_orders_reliable": 470100,
+  "note": "Sell orders only: exact-output buy orders are excluded rather than imposing an invalid ratio transformation. AMM prices use cached SOR quotes and native auction prices.",
+  "tiers": {
+    "long": {
+      "n": 268923,
+      "median_realised_pi_bps": 15.72,
+      "median_solver_frontier_bps": 16.09,
+      "median_selection_loss_bps": 0.0,
+      "median_bidders": 7.0
+    },
+    "mid": {
+      "n": 38258,
+      "median_realised_pi_bps": 24.57,
+      "median_solver_frontier_bps": 24.91,
+      "median_selection_loss_bps": 0.0,
+      "median_bidders": 8.0
+    },
+    "short": {
+      "n": 162919,
+      "median_realised_pi_bps": -0.43,
+      "median_solver_frontier_bps": -0.29,
+      "median_selection_loss_bps": 0.0,
+      "median_bidders": 7.0
+    }
+  }
+}
